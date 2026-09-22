@@ -1,7 +1,7 @@
 /**
  * 2World Travel Cambodia — Application Controller
- * High-performance vanilla JavaScript managing interaction, accessibility,
- * and data-driven DOM rendering.
+ * Flat, clean, modern travel interface controller.
+ * Manages DOM rendering, accessible modal dialogs, and instant filter updates.
  */
 
 import { TOURS_DATA, DESTINATIONS_DATA, COMPANY_INFO } from './data.js';
@@ -29,7 +29,6 @@ function initNavigation() {
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Close on link click inside mobile drawer
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
@@ -73,7 +72,6 @@ function initModal() {
 
     if (!modal) return;
 
-    // Reset state
     if (form) form.classList.remove('hidden');
     if (success) success.classList.add('hidden');
     if (tourInput) {
@@ -84,7 +82,6 @@ function initModal() {
     modal.classList.add('flex');
     document.body.style.overflow = 'hidden';
 
-    // Focus initial input
     setTimeout(() => {
       const firstInput = document.getElementById('clientName');
       if (firstInput) firstInput.focus();
@@ -104,14 +101,12 @@ function initModal() {
     const form = document.getElementById('inquiryForm');
     const success = document.getElementById('inquirySuccess');
 
-    // Simulate verified inquiry dispatch
     if (form && success) {
       form.classList.add('hidden');
       success.classList.remove('hidden');
     }
   };
 
-  // Close on backdrop click & ESC key
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       window.closeInquiryModal();
@@ -139,10 +134,8 @@ function initHeroSearch() {
     const style = document.getElementById('heroStyleSelect')?.value || '';
     const duration = document.getElementById('heroDurationSelect')?.value || '';
 
-    // Filter featured tours locally on the page smoothly
     filterToursOnPage(dest, style, duration);
 
-    // Scroll smoothly to the tours section
     const toursSection = document.getElementById('tours');
     if (toursSection) {
       toursSection.scrollIntoView({ behavior: 'smooth' });
@@ -181,13 +174,13 @@ function filterToursOnPage(dest, style, duration) {
     toursContainer.innerHTML = filtered.map(tour => renderTourCard(tour)).join('');
   } else {
     toursContainer.innerHTML = `
-      <div class="col-span-full p-12 text-center bg-white rounded-2xl border border-[#EAE2D5]">
-        <p class="text-base font-semibold text-slate-800 mb-2">No matching itineraries found</p>
+      <div class="col-span-full p-10 text-center bg-white rounded-md border border-stone-200">
+        <p class="text-sm font-semibold text-slate-800 mb-1.5">No matching itineraries found</p>
         <p class="text-xs text-slate-500 mb-4 max-w-md mx-auto">We customize all routes. Contact our travel team directly to build a custom journey suited to your exact dates and duration.</p>
         <button 
           type="button" 
           onclick="window.resetToursFilter()" 
-          class="px-4 py-2 rounded-xl text-xs font-semibold bg-[#9E472A] text-white"
+          class="px-3.5 py-1.5 rounded-md text-xs font-semibold bg-[#9E472A] text-white hover:bg-[#82381F] transition-luxury"
         >
           Reset Filters
         </button>
@@ -206,19 +199,19 @@ window.resetToursFilter = function() {
 };
 
 /**
- * Header Scroll Polish
+ * Header Scroll - Flat subtle border emphasis without shadows
  */
 function initScrollEffects() {
   const header = document.getElementById('mainHeader');
   if (!header) return;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.classList.add('shadow-md', 'bg-white/95', 'backdrop-blur-md');
-      header.classList.remove('bg-white');
+    if (window.scrollY > 20) {
+      header.classList.add('border-stone-300');
+      header.classList.remove('border-sandstone-200');
     } else {
-      header.classList.remove('shadow-md', 'bg-white/95', 'backdrop-blur-md');
-      header.classList.add('bg-white');
+      header.classList.remove('border-stone-300');
+      header.classList.add('border-sandstone-200');
     }
   });
 }

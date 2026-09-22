@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Cambodian Inspired Color Tokens */
+  /* Cambodian Inspired Color Tokens - Flat & Editorial */
   --color-sandstone-bg: #FBF8F3;
   --color-sandstone-surface: #FFFFFF;
-  --color-sandstone-border: #EAE2D5;
+  --color-sandstone-border: #E6DFD3;
   --color-sandstone-muted: #F4EFE6;
   
   --color-terracotta-primary: #9E472A;
@@ -50,40 +50,26 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
   outline: 2px solid var(--color-terracotta-primary);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
-/* Subtle, dignified elevation shadows */
-.shadow-soft {
-  box-shadow: 0 4px 20px -2px rgba(20, 46, 39, 0.05), 0 2px 6px -1px rgba(20, 46, 39, 0.03);
-}
-
-.shadow-card {
-  box-shadow: 0 10px 30px -5px rgba(20, 46, 39, 0.07), 0 4px 10px -2px rgba(20, 46, 39, 0.04);
-}
-
-.shadow-elevated {
-  box-shadow: 0 20px 45px -10px rgba(20, 46, 39, 0.12), 0 8px 16px -4px rgba(20, 46, 39, 0.06);
-}
-
-/* Restrained transitions */
+/* Flat luxury transitions (color, border, subtle scale - no hover elevation/translateY) */
 .transition-luxury {
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
-/* Interactive Card Zoom */
+/* Restrained, flat Image Zoom */
 .card-image-zoom {
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .group:hover .card-image-zoom {
-  transform: scale(1.04);
+  transform: scale(1.025);
 }
 
-/* Modal backdrop blur */
+/* Flat Modal Backdrop - solid tinted dimming, zero blur */
 .modal-backdrop {
-  background-color: rgba(13, 30, 26, 0.65);
-  backdrop-filter: blur(4px);
+  background-color: rgba(13, 30, 26, 0.75);
 }
 
 /* Reduced motion preference */
@@ -98,35 +84,35 @@ textarea:focus-visible {
   }
 }
 
-/* Badge styling */
+/* Badges - crisp flat labels */
 .badge-gold {
   background-color: var(--color-gold-light);
   color: #7D5618;
-  border: 1px solid rgba(195, 139, 56, 0.3);
+  border: 1px solid rgba(195, 139, 56, 0.35);
 }
 
 .badge-terracotta {
   background-color: var(--color-terracotta-light);
   color: var(--color-terracotta-primary);
-  border: 1px solid rgba(158, 71, 42, 0.2);
+  border: 1px solid rgba(158, 71, 42, 0.25);
 }
 
 .badge-forest {
   background-color: rgba(28, 63, 53, 0.08);
   color: var(--color-forest-medium);
-  border: 1px solid rgba(28, 63, 53, 0.2);
+  border: 1px solid rgba(28, 63, 53, 0.25);
 }
 
-/* Custom scrollbar for cleanliness */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
   background: #F4EFE6;
 }
 ::-webkit-scrollbar-thumb {
   background: #D8CEBD;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #9E472A;

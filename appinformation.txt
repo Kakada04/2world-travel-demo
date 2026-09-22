@@ -1,0 +1,408 @@
+2World Travel Cambodia — Comprehensive Web Application Audit, CMS Architecture & Rebuild Specification
+Target Application: 2World Travel Cambodia
+Auditor: Senior Web Application Auditor, UX Researcher, Information Architect & CMS Analyst
+Document Status: Final Production Specification (Sections 1 to 25 Complete)
+PART I: COMPREHENSIVE WEB APPLICATION, UX & CMS AUDIT
+1. Executive Summary
+Business Profile: 2World Travel (Cambodia) Ltd is an accredited travel agency and tour operator established in Phnom Penh circa 2010 (Ministry of Commerce License So. 0021KH/2010; Ministry of Tourism License 098/11; CATA and PATA member) specializing in inbound multi-day tours, inter-city and cross-border transport ticketing, multilingual tour guide services, and corporate MICE logistics.
+Application Architecture: Despite marketing an "own online reservation system," the existing website operates purely as an asynchronous manual lead-generation catalog and static directory. There is zero real-time inventory, no live payment gateway processing, and no instant booking engine.
+Technical Degradation: The public frontend displays unrendered raw WordPress shortcodes across major landing pages, including [rev_slider alias="home1"], [tours_grid ...], [title ...], [metaslider id=4770], and [contact_info ...]. On the main Contact Us page, the primary inquiry form fails with the error message: Error: Contact form not found.
+Content Stagnation & Decay: The site contains defunct airline listings (SilkAir, Dragonair), expired airfares ("Travel up to 28 February 2015"), outdated copyright notices (2009–2017), empty stub pages (e~VISA, CAMBODAI TOURS), and customer testimonials that end in December 2013.
+Rebuild Necessity: A complete architectural overhaul is required, transitioning from the decaying monolithic WordPress theme to a modern headless/decoupled CMS architecture with strongly typed relational data models.
+2. Complete Sitemap & Crawled URL Directory
+#
+URL
+Page Title
+Page Type
+Nav Location
+Purpose & Content Summary
+1
+Homepage
+ Tour Operator and Travel Agency in Cambodia
+ Landing Page
+ Home
+Core brand portal; broken slider/video; package matrix.
+2
+Airline in Cambodia
+ Airline in Cambodia
+ Directory
+ Country Facts
+16 airline local offices, phone numbers, and IATA codes.
+3
+Attractive Site
+ Attractive Site
+ Destination
+ Country Facts
+Provincial guide for Banteay Meanchey, Battambang, etc.
+4
+Food & Drinks
+ Food & Drinks
+ Cultural
+ Country Facts
+Culinary guide on Khmer dishes, fruits, and local beers.
+5
+Geography
+ Geography
+ Editorial
+ Country Facts
+Overview of boundaries, Tonle Sap lake, and Mekong river.
+6
+Cultures
+ Cultures & Tranditional
+ Cultural
+ Country Facts
+History of arts, silver/gold crafts, and silk weaving.
+7
+Company Profile
+ Company Profile
+ Corporate
+ About Us
+Business credentials, mission, vehicle fleet inventory.
+8
+Legal
+ License and Ministry
+ Trust/Legal
+ About Us
+Legal verification: Tourism License, Patent Tax, CATA.
+9
+Our Services
+ Our Services
+ Services
+ About Us
+Overview of agency capabilities; duplicates Profile.
+10
+Payment Method
+ Payment Method
+ Transactional
+ About Us
+Bank wire instructions; slug collision /payment-method-2/.
+11
+Terms & Conditions
+ Terms & Conditions
+ Legal Policy
+ About Us
+Booking rules, 25% deposit, and cancellation penalties.
+12
+Testimonials
+ TESTIMONIALS
+ Social Proof
+ About Us
+19 customer reviews spanning 2010–2013.
+13
+Contact Us
+ Contact Us
+ Contact
+ Contact us
+Departmental routing; broken Contact Form 7 shortcode.
+14
+CAMBODAI TOURS
+ CAMBODAI TOURS
+ Stub
+ Main Nav
+Empty header container with navigation typo.
+15
+Siem Reap Tours
+ Siem Reap
+ Category
+ Tours
+Listing of 6 tour packages (2D1N to 7D6N).
+16
+Phnom Penh Tours
+ Phnom Penh
+ Category
+ Tours
+Listing of 5 tour packages (2D1N to 6D5N).
+17
+Ratanakiri Tours
+ Ratanakiri
+ Category
+ Tours
+Listing of 4 Northeast eco-tours; degraded slug /5239-2/.
+18
+Golf Tours
+ Siem Reap
+ Category
+ Tours
+Listing of 3 golf packages; degraded slug /5269-2/.
+19
+SICs (Join Tours)
+ SICs
+ Category
+ Tours
+11 Seat-in-Coach packages connecting PP and SR.
+20
+Birding 10D9N
+ Birding Cambodia
+ Tour Detail
+ Package Tours
+Full 10-day itinerary; tour code mislabeled.
+21
+South Coast 7D6N
+ South Coast Explorer
+ Tour Detail
+ Package Tours
+Coastal & island tour; Code 2WT-SCE-7D6N.
+22
+Introducing 6D5N
+ Introducing Cambodia
+ Tour Detail
+ Package Tours
+Classical route; text contains copy-paste mismatch.
+23
+Grand Journey
+ Grand Cambodia Joumey
+ Tour Detail
+ Package Tours
+19-day expedition; typo in title ("Joumey").
+24
+Magical 6D5N
+ Magical 6D5N
+ Tour Detail
+ Package Tours
+SR & remote temples; code copied from 14-day tour.
+25
+Northeast 7D6N
+ Northeast Explorer
+ Tour Detail
+ Package Tours
+Kratie/Mondulkiri; Day 1 copied from Siem Reap tour.
+26
+Kampot - Sihanouk
+ Southern Package
+ Category
+ Package Tours
+Southern beach package; Code 2WT-PNH-KP-SHV-PNH.
+27
+Booking Form
+ Booking Package Tours
+ Lead Gen
+ Book Now
+Dedicated reservation form with Tour Code and Dates.
+28
+Flight Services
+ Flight
+ Tariff
+ Other Services
+Air ticketing; promo cards (2015); 30+ route fares.
+29
+Bus Tickets
+ Bus Tickets
+ Tariff
+ Other Services
+Giant Ibis, Mekong Express, Virak Buntham, Soriya.
+30
+Train Tickets
+ Train Tickets
+ Tariff
+ Other Services
+Japan Rail Pass and Vietnam Railways timetables.
+31
+Tour Guide
+ Tour Guide
+ Rate Card
+ Other Services
+Private guide rates across 8 languages.
+32
+MICE Room
+ Meeting Room
+ Service/Form
+ Other Services
+Conference packages and equipment rental booking.
+33
+Visa Services
+ Visa Services
+ Tariff
+ Other Services
+Cambodia extensions and outbound visa processing.
+34
+e~VISA
+ e~VISA
+ Stub
+ Other Services
+Empty content container with no functional elements.
+
+3. Current Business Features
+Confirmed Operations: Inbound multi-day tour itineraries, Seat-in-Coach (SIC) group packages, niche tours (Bird Watching, Golf), flight ticketing, bus ticket consolidation (Giant Ibis, Mekong Express, Virak Buntham, Capitol, Soriya), Japan Rail & Vietnam rail ticket retail, certified multilingual guide hiring, MICE equipment rental, visa extensions/outbound processing, private vehicle rental, and travel insurance brokering (Forte Insurance).
+Implied / Partially Implemented: Hotel booking engine (listed in navigation, but links are dead), e-Commerce checkout (WooCommerce artifact exists at /product/siem-reap-angkor-wat-3d-2n/, but inactive), e-Visa online processing (empty stub page).
+Missing Travel Capabilities: Dynamic tour search/filtering, real-time availability calendar, local digital payments (Bakong KHQR, ABA PayWay), direct messaging widgets (Telegram/WhatsApp), multilingual support (Khmer/Chinese), and an automated CRM inquiry pipeline.
+4. Page Template Analysis (7 Core Archetypes)
+T1-Home (Homepage): Sticky topbar, hero banner slider, 4 quick services, tour highlights grid, 20-package matrix, 4-widget footer, and sidebar.
+T2-TourListing (Tour Category): Breadcrumb, category hero, repeating tour cards (Title, Board Basis, Tour Code, "Read more…"), and sidebar.
+T3-TourDetail (Itinerary Detail): Hero image, Introduction, In Brief summary, Day-by-Day blocks with meal codes ({B}, {L}, {D}), Inclusions/Exclusions list, Tour Code, and "Boook Now" CTA.
+T4-TariffDirectory (Data & Tariff Tables): Dense multi-column tables for routes, operators, departure/arrival times, and foreigner/local fares with inquiry CTAs.
+T5-ServiceInquiry (Interactive Service Form): Service descriptions, equipment rate tables, and multi-field quote/booking form.
+T6-ContentEditorial (Destination & Cultural Guides): Long-form editorial layout with subheadings, image embeds, and informational sidebars.
+T7-ContactHub (Contact & Reviews Portal): Multi-branch department directory (phone, email, Skype, office addresses), contact form, and customer review cards.
+5. Reverse-Engineered CMS Entities (10 Core Types)
+TourPackage: Core tour product (tour_code, title, slug, duration_days, duration_nights, board_basis, intro_text, inclusions, exclusions, featured_image).
+ItineraryDay: Sub-entity of TourPackage (tour_id, day_number, title, narrative, meals_included, overnight_location).
+AirlineDirectory: Carrier database (airline_name, iata_code, office_address, phone, email, website, is_active).
+BusRoute: Transportation matrix (origin, destination, operator_name, departure_time, arrival_time, bus_type, fare_usd, frequency).
+FlightFareQuote: Benchmark route pricing (departure_city, arrival_city, airline_partner, one_way_usd, round_trip_usd).
+TourGuideRate: Professional guide tariffs (language, full_day_rate_usd, half_day_rate_usd, working_hours, policy).
+VisaRequirement: Immigration rules (country_name, is_extension, visa_type, validity, processing_time, service_fee_usd, requirements).
+MICEPackage & MICEEquipment: Event tariffs (package_number, rate_per_pax, daily_hall_rate, equipment rental items).
+InquiryLead: Customer leads (lead_type, tour_code, client_name, client_email, client_phone, pax_count, travel_dates, status).
+Testimonial: Client feedback (client_name, client_country, review_date, review_body, rating, is_approved).
+6. Relational Data Model Schema
+Normalizes relationships between TourPackage (1-to-many with ItineraryDay), Destination (many-to-many with TourPackage; 1-to-many with BusRoute origins/destinations), TourCategory, InquiryLead, and MICEPackage. Enforces unique constraints on tourCode to eliminate legacy copy-paste bugs.
+7. Navigation & Information Architecture
+Flaws Identified: 7 of 12 sub-items under "General Informations" return dead links.
+Pervasive UI Typos in Navigation: Menu displays CAMBODAI TOURS, Cultures & Tranditional, and General Informations.
+Slug Degradation: Active pages load under auto-draft slugs like /5239-2/, /5269-2/, and /payment-method-2/.
+Orphan Pages: High-value services like Flight Services and Booking Package Tours are buried or unlinked in the main navigation.
+8. Forms & Lead Generation Audit
+Booking Package Tours: Captures Tour Code, Adults, Children, Dates, Nationality, Hotel Preference. (Working via PHP mail).
+Meeting Room (MICE): Captures Dates, Pax count, Package tier, Audiovisual equipment checklist, Captcha. (Working via PHP mail).
+Contact Us: Completely broken; renders Error: Contact form not found.
+Departmental Email Matrix: info@, tours@, outbound@, ticket@, visa@, angkor@ (Siem Reap branch).
+Hotlines: Office landlines (023 222 727), 24/7 mobile hotlines (012 222 623, 016 985 400).
+Legacy Channels: Obsolete Skype handles (ticket.2worldtravel, tours.2worldtravel).
+9. Media & Digital Asset Audit
+Logos: Low-resolution animated/static GIF (logo.gif) dating from 2017.
+Sliders: Broken Revolution Slider and MetaSlider shortcode instances across templates.
+Video: Embedded HTML5 MP4 player fails across all sidebars (Media error: Format(s) not supported).
+Tour Photography: Unoptimized JPEGs lacking modern WebP/AVIF formats and responsive srcset breakpoints.
+Recommendations: Implement a centralized Media Library with automated WebP conversion and offload video hosting to YouTube/Vimeo.
+10. Technical Stack & Infrastructure Audit
+Platform: Outdated WordPress installation on Apache/LiteSpeed shared hosting with cPanel.
+Active / Failing Plugins: Revolution Slider, MetaSlider, Contact Form 7, WPCaptcha, WooCommerce (inactive artifact).
+Security & Performance: Mixed-content warnings (assets loading over HTTP), missing modern security headers (HSTS, CSP), legacy Google Analytics (ga.js), lack of CDN caching.
+11. Content Quality & Legacy Debt Audit
+Defunct Airlines: Lists Dragonair (ceased operations in 2020) and SilkAir (merged into Singapore Airlines in 2021).
+Expired Fares: Banners advertise airfares valid up to "28 February 2015".
+Duplicate Tour Codes: 2WT-BC-10D9N is copied across Introducing Cambodia 6D5N and Grand Cambodia 19D18N.
+Internal Itinerary Contradictions: Northeast Explorer heading mentions Siem Reap while text describes Phnom Penh and Kratie.
+Conflicting Head Office Addresses: Mao Tse Toung Blvd (St. 245 corner of St. 199) vs. Borey Piphup Thmey II (St. BT12, Sangkat Pong Teuk, Khan Dangkor).
+Spelling Typos: Joumey (page title), Boook Now (CTA buttons), Sreen Projector (form), Giant ibis Dalily (bus table).
+12. SEO & Metadata Deficiencies
+Title Tags: Duplicate titles used across different categories (e.g., standard Siem Reap tours and Golf tours both titled Siem Reap - 2worldtravel.com).
+Meta Descriptions: Missing across subpages; search engines fall back to scraping raw navigation text.
+Structured Data: Total absence of Schema.org JSON-LD (TravelAgency, TouristTrip, Product).
+Images: Over 85% of images lack descriptive alt text.
+13. Current vs. Future CMS Feature Matrix
+Inferred CMS Requirements: Tour Custom Post Type, Day-by-Day Itinerary Builder, Bus/Train Tariff Manager, Visa Rules Engine, MICE Configurator, Customer Review Moderation Queue, Automated 301 Redirect Manager.
+Modernization Opportunities: Admin CRM Lead Pipeline, Bakong KHQR Local Digital Payments, Telegram/WhatsApp Instant Messaging integration, Multi-currency (USD/KHR), Multilingual Content (English, Khmer, Chinese).
+14. CMS Admin Modules Specification
+Architecture for 10 dedicated management screens:
+
+Tour Package Manager (itinerary builder with meal selectors).
+Transport CMS (schedules, operators, fares).
+Visa Directory (nationality-to-document checklist mapping).
+MICE Engine (conference packages, hall rentals, equipment fees).
+Airline Desk (local carrier offices, IATA codes).
+Tour Guide Manager (multilingual rate cards).
+Lead & CRM Pipeline (inbox, status tracking, Telegram bot alerts).
+Media Library (WebP optimizer, asset crops).
+Destination CMS (provincial guides, cultural articles).
+Reviews & FAQ Moderation.
+15. Public Website Modules Specification
+Faceted Tour Search & Filter (filter by Destination, Duration, Style, Budget).
+Interactive Day-by-Day Accordion with timeline markers.
+Live Searchable Transportation Fares Table.
+Sticky Floating Action Bar on mobile (Instant Telegram / WhatsApp / Hotline).
+Interactive MICE Event Cost Estimator.
+16. Missing Modern Features & Opportunities
+Bakong KHQR and Stripe/PayWay deposit processing.
+Automated WhatsApp & Telegram concierge links with pre-filled tour codes.
+Mapbox / Google Maps interactive tour route integration.
+One-click branded PDF itinerary generator.
+B2B Travel Agent login portal for confidential net rates.
+17. Content Migration Strategy & Rules
+Deduplicate all cloned tour codes (2WT-BC-10D9N -> 2WT-IC-6D5N, 2WT-GC-19D18N, etc.).
+Regex-strip all raw shortcode brackets ([title], [contact_info], [rev_slider]).
+Discard defunct airlines (Dragonair, SilkAir) and expired 2015 fare tables.
+Deploy 301 redirects for legacy URLs (/5239-2/, /5269-2/, /payment-method-2/, /grand/, /introducing/).
+18. Rebuild Scope & Prioritization
+Tier A (Must Have / MVP): Normalized CMS Schema, Tour & Itinerary Builder, Responsive Templates, Working Inquiry Forms, Transport/Visa Directories, 301 Redirect Table.
+Tier B (Should Have): Admin CRM Pipeline, Telegram/WhatsApp Lead Alerts, MICE Cost Calculator, PDF Exporter, Schema.org Structured Data.
+Tier C (Optional / Phase 2): Multilingual (Khmer/Chinese), Online Bakong KHQR deposits, B2B Agent Portal.
+Tier D (Do Not Rebuild): Heavy slider plugins, raw video player, defunct airlines, expired 2015 tables, orphaned WooCommerce products.
+19. Critical Unknowns Requiring Human Verification
+Exact physical Head Office address: Place
+Official corporate bank account numbers and SWIFT details: Person
+Confirmation of active transport partnerships and 2026/2027 timetables: File
+Current standard rate cards for tour guides and vehicle fleet rentals: File
+Clarification on secondary domain cambodiahotelsandtours.com: File
+PART II: TECHNICAL REBUILD SPECIFICATIONS & IMPLEMENTATION BLUEPRINT
+20. Recommended Modern Tech Stack & Infrastructure
+Frontend: Next.js (App Router) with TypeScript and Tailwind CSS.
+Backend / CMS Engine: Payload CMS or Directus (PostgreSQL native).
+Database: PostgreSQL 16.
+Media: Cloudflare R2 + Edge CDN caching.
+Pipeline: Telegram Bot API + Resend for automated staff/client notifications.
+Payment (Phase 2): Bakong KHQR SDK + Stripe / ABA PayWay.
+21. Production Relational Schema (Prisma ORM)
+enum MealType {
+
+  BREAKFAST
+
+  LUNCH
+
+  DINNER
+
+}
+
+model TourPackage {
+
+  id             String         @id @default(cuid())
+
+  tourCode       String         @unique
+
+  title          String
+
+  slug           String         @unique
+
+  durationDays   Int
+
+  durationNights Int
+
+  boardBasis     String
+
+  itinerary      ItineraryDay[]
+
+  categories     TourCategory[]
+
+  createdAt      DateTime       @default(now())
+
+}
+
+model ItineraryDay {
+
+  id            String      @id @default(cuid())
+
+  dayNumber     Int
+
+  title         String
+
+  narrative     String      @db.Text
+
+  meals         MealType[]
+
+  tour          TourPackage @relation(fields: [tourId], references: [id])
+
+  tourId        String
+
+}
+22. Core API Contracts & Lead Routing
+GET /api/v1/tours: Faceted catalog filtering by destination, category, duration, and price range.
+POST /api/v1/inquiries/tour: Validated inquiry payload triggering database logging, automated staff Telegram alert, and client confirmation email.
+POST /api/v1/inquiries/mice: Multi-day conference event quote request with equipment checklist mapping.
+23. Automated Data Migration & Sanitization Strategy
+Python ETL extraction pipeline to:
+
+Regex-strip visual page builder shortcode tags ([title], [contact_info], [rev_slider], [metaslider]).
+Correct pervasive typos (Joumey -> Journey, Boook Now -> Book Now, CAMBODAI -> CAMBODIA).
+Resolve cloned tour codes to unique identifiers.
+Parse raw day-by-day text into structured JSON arrays with automated meal indicator extraction.
+24. Key Wireframes & UI Component Architecture
+Tour Detail Layout: Breadcrumbs, Tour Meta Header, Sticky Mobile-Friendly Inquiry Box with instant Telegram/WhatsApp triggers, Overview text, Accordion Day-by-Day timeline, and Inclusions/Exclusions comparison table.
+Dynamic Bus Schedule Layout: Instant live text filter (origin, destination, operator), operator filter tabs, and responsive mobile route cards.
+25. Implementation Schedule & Phased Delivery
+Sprint 1 (Weeks 1–2): Infrastructure, PostgreSQL setup, Prisma schema, CMS core configuration.
+Sprint 2 (Weeks 3–4): ETL migration script execution, shortcode sanitization, tour code deduplication.
+Sprint 3 (Weeks 5–6): Public core frontend (Next.js, Tour Catalog, Itinerary Views).
+Sprint 4 (Weeks 7–8): Transport, Visa directories, MICE calculator component.
+Sprint 5 (Weeks 9–10): Telegram bot alerts, email delivery, CRM admin board, 301 redirect deployment.
+Sprint 6 (Weeks 11–12): QA, Lighthouse speed optimization (>95), DNS switchover.
+

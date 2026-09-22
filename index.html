@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2World Travel Cambodia — Inbound Destination Management & Tailored Journeys</title>
+  <meta name="description" content="Accredited Cambodia inbound tour operator and travel agency established in 2010. Multi-day cultural tours, inter-city transport, multilingual guides, visa services, and corporate MICE logistics.">
+
+  <!-- Tailwind CSS CDN with custom design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sandstone: {
+              50: '#FBF8F3',
+              100: '#F4EFE6',
+              200: '#EAE2D5',
+              300: '#D8CEBD',
+            },
+            terracotta: {
+              50: '#FDF7F5',
+              100: '#F7EDE8',
+              500: '#9E472A',
+              600: '#82381F',
+              700: '#692C17',
+            },
+            forest: {
+              800: '#1C3F35',
+              900: '#142E27',
+              950: '#0D1E1A',
+            },
+            khmerGold: {
+              100: '#F8F1E3',
+              400: '#D4A359',
+              500: '#C38B38',
+              600: '#A37229',
+            },
+            slateText: {
+              900: '#1B2228',
+              700: '#3D4752',
+              500: '#5D6773',
+              400: '#8A96A4',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- External Design Tokens & Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-sandstone-50 text-slateText-900 font-sans antialiased selection:bg-terracotta-100 selection:text-terracotta-700 min-h-screen flex flex-col">
+
+  <!-- ========================================================================= -->
+  <!-- 1. UTILITY / CREDENTIALS BAR                                              -->
+  <!-- ========================================================================= -->
+  <aside class="bg-forest-950 text-stone-300 text-[11px] sm:text-xs py-2 px-4 border-b border-forest-900/60" aria-label="Official credentials and hotlines">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-4">
+      <div class="flex items-center space-x-2 text-stone-300 text-center sm:text-left">
+        <span class="inline-flex items-center text-khmerGold-400 font-semibold">
+          <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+          Licensed Operator:
+        </span>
+        <span>MoT Lic. 098/11 &bull; MoC So. 0021KH/2010 &bull; CATA & PATA Member</span>
+      </div>
+
+      <div class="flex items-center space-x-4 text-stone-300">
+        <a href="tel:+85523222727" class="hover:text-white transition-colors flex items-center">
+          <span class="text-stone-400 mr-1">Tel:</span> +855 (0)23 222 727
+        </a>
+        <span class="text-forest-800 hidden md:inline">|</span>
+        <a href="mailto:info@2worldtravel.com" class="hover:text-white transition-colors hidden md:inline">
+          info@2worldtravel.com
+        </a>
+        <span class="text-forest-800">|</span>
+        <button type="button" onclick="window.openInquiryModal()" class="text-khmerGold-400 hover:text-khmerGold-100 font-medium transition-colors">
+          Direct Inquiries
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- 2. MAIN NAVIGATION HEADER                                                 -->
+  <!-- ========================================================================= -->
+  <header id="mainHeader" class="sticky top-0 z-40 bg-white border-b border-sandstone-200 transition-luxury">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Identity -->
+        <a href="index.html" class="flex items-center space-x-3 group" aria-label="2World Travel Cambodia Home">
+          <div class="w-10 h-10 rounded-xl bg-forest-900 text-khmerGold-400 flex items-center justify-center font-serif text-xl font-bold group-hover:bg-terracotta-500 transition-colors shadow-sm">
+            2W
+          </div>
+          <div>
+            <div class="font-serif font-bold text-xl sm:text-2xl text-slateText-900 tracking-tight leading-none group-hover:text-terracotta-500 transition-colors">
+              2World Travel
+            </div>
+            <div class="text-[10px] uppercase font-semibold tracking-wider text-slateText-500 mt-0.5">
+              Cambodia &bull; Est. 2010
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium text-slateText-700" aria-label="Primary Navigation">
+          <a href="index.html" class="text-terracotta-500 font-semibold border-b-2 border-terracotta-500 pb-1">Home</a>
+          <a href="#tours" class="hover:text-terracotta-500 transition-colors">Tours</a>
+          <a href="#destinations" class="hover:text-terracotta-500 transition-colors">Destinations</a>
+          <a href="#services" class="hover:text-terracotta-500 transition-colors">Services</a>
+          <a href="#why-us" class="hover:text-terracotta-500 transition-colors">Why 2World</a>
+          <a href="#reviews" class="hover:text-terracotta-500 transition-colors">Reviews</a>
+          <a href="#contact" class="hover:text-terracotta-500 transition-colors">Contact</a>
+        </nav>
+
+        <!-- Right Action Button -->
+        <div class="hidden sm:flex items-center space-x-3">
+          <button 
+            type="button" 
+            onclick="window.openInquiryModal()" 
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-semibold bg-terracotta-500 text-white hover:bg-terracotta-600 transition-luxury shadow-sm focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2"
+          >
+            Plan Your Journey
+          </button>
+        </div>
+
+        <!-- Mobile Menu Trigger -->
+        <div class="flex lg:hidden items-center space-x-2">
+          <button 
+            type="button" 
+            onclick="window.openInquiryModal()" 
+            class="sm:hidden px-3 py-1.5 rounded-lg text-xs font-semibold bg-terracotta-500 text-white"
+          >
+            Inquire
+          </button>
+          <button 
+            id="mobileMenuBtn" 
+            type="button" 
+            class="p-2.5 rounded-xl text-slateText-700 hover:bg-sandstone-100 focus:outline-none focus:ring-2 focus:ring-terracotta-500"
+            aria-expanded="false" 
+            aria-label="Toggle Navigation Menu"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-sandstone-200 bg-sandstone-50 px-4 pt-3 pb-6 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-xl text-sm font-semibold bg-terracotta-100 text-terracotta-700">Home</a>
+      <a href="#tours" class="block px-3 py-2 rounded-xl text-sm font-medium text-slateText-700 hover:bg-sandstone-200">Tours Catalog</a>
+      <a href="#destinations" class="block px-3 py-2 rounded-xl text-sm font-medium text-slateText-700 hover:bg-sandstone-200">Cambodian Destinations</a>
+      <a href="#services" class="block px-3 py-2 rounded-xl text-sm font-medium text-slateText-700 hover:bg-sandstone-200">Travel Services & Transport</a>
+      <a href="#why-us" class="block px-3 py-2 rounded-xl text-sm font-medium text-slateText-700 hover:bg-sandstone-200">Why 2World Travel</a>
+      <a href="#reviews" class="block px-3 py-2 rounded-xl text-sm font-medium text-slateText-700 hover:bg-sandstone-200">Client Archive Reviews</a>
+      <a href="#contact" class="block px-3 py-2 rounded-xl text-sm font-medium text-slateText-700 hover:bg-sandstone-200">Contact & Desk</a>
+      <div class="pt-3 border-t border-sandstone-200">
+        <button 
+          type="button" 
+          onclick="window.openInquiryModal()" 
+          class="w-full py-3 rounded-xl text-xs font-semibold bg-terracotta-500 text-white text-center shadow-sm"
+        >
+          Plan Your Custom Journey
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 3. HERO SECTION WITH AUTHENTIC CAMBODIAN NARRATIVE & TRIP DISCOVERY       -->
+  <!-- ========================================================================= -->
+  <section class="relative bg-forest-950 text-white overflow-hidden" aria-labelledby="heroHeading">
+    <!-- Atmospheric Cambodian Backdrop -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" 
+        alt="Angkor Wat reflection at dawn in Siem Reap, Cambodia" 
+        class="w-full h-full object-cover object-center opacity-30"
+      />
+      <!-- Gradients for pristine text contrast -->
+      <div class="absolute inset-0 bg-gradient-to-r from-forest-950 via-forest-950/80 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-forest-950 via-transparent to-black/30"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28">
+      <div class="max-w-3xl">
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-forest-900/90 text-khmerGold-400 border border-khmerGold-500/30 mb-6 backdrop-blur-sm">
+          <span class="w-2 h-2 rounded-full bg-khmerGold-400 mr-2"></span>
+          Cambodian Inbound Tour Operator Since 2010
+        </div>
+
+        <!-- Strong Specific Cambodian Headline (NOT generic "Discover Amazing Places") -->
+        <h1 id="heroHeading" class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-6">
+          Immersive Journeys Across Ancient Temples, Wild Trails & Sacred Rivers
+        </h1>
+
+        <!-- Short Supporting Copy -->
+        <p class="text-base sm:text-lg text-stone-300 font-normal leading-relaxed mb-8 max-w-2xl">
+          From the sacred laterite sanctuaries of Angkor to the cardamom forests of Mondulkiri and the tranquil southern coast. Tailor-made itineraries, private guided expeditions, and reliable transportation arranged by our licensed travel team.
+        </p>
+
+        <!-- Primary & Secondary CTAs -->
+        <div class="flex flex-wrap items-center gap-4 mb-12">
+          <a 
+            href="#tours" 
+            class="px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-terracotta-500 text-white hover:bg-terracotta-600 transition-luxury shadow-card text-center"
+          >
+            Explore Curated Tours
+          </a>
+          <button 
+            type="button" 
+            onclick="window.openInquiryModal()" 
+            class="px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-forest-900/80 hover:bg-forest-800 text-white border border-stone-600 transition-luxury backdrop-blur-sm text-center"
+          >
+            Plan Your Custom Trip
+          </button>
+        </div>
+      </div>
+
+      <!-- Real-World Trip Discovery Filter Bar (NOT a fake flight booking engine!) -->
+      <div class="mt-4 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-sandstone-200 shadow-elevated text-slateText-900">
+        <form id="heroSearchForm" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          
+          <!-- Destination Field -->
+          <div>
+            <label for="heroDestSelect" class="block text-[11px] uppercase font-bold tracking-wider text-slateText-500 mb-1.5">Destination</label>
+            <select 
+              id="heroDestSelect" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-sandstone-200 bg-sandstone-50 text-xs sm:text-sm text-slateText-900 font-medium focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 transition-colors"
+            >
+              <option value="all">All Cambodia Regions</option>
+              <option value="Siem Reap">Siem Reap & Angkor</option>
+              <option value="Phnom Penh">Phnom Penh & Mekong</option>
+              <option value="South Coast">South Coast (Kampot & Kep)</option>
+              <option value="Northeast">Northeast (Kratie & Mondulkiri)</option>
+            </select>
+          </div>
+
+          <!-- Tour Style Field -->
+          <div>
+            <label for="heroStyleSelect" class="block text-[11px] uppercase font-bold tracking-wider text-slateText-500 mb-1.5">Tour Style</label>
+            <select 
+              id="heroStyleSelect" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-sandstone-200 bg-sandstone-50 text-xs sm:text-sm text-slateText-900 font-medium focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 transition-colors"
+            >
+              <option value="all">All Styles</option>
+              <option value="Classic Heritage">Classic Heritage</option>
+              <option value="Coastal Escape">Coastal & Islands</option>
+              <option value="Eco-Adventure">Eco-Adventure & Wildlife</option>
+              <option value="Special Interest">Special Interest (Birding)</option>
+              <option value="Seat-in-Coach">Seat-in-Coach (SIC)</option>
+            </select>
+          </div>
+
+          <!-- Duration Field -->
+          <div>
+            <label for="heroDurationSelect" class="block text-[11px] uppercase font-bold tracking-wider text-slateText-500 mb-1.5">Duration</label>
+            <select 
+              id="heroDurationSelect" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-sandstone-200 bg-sandstone-50 text-xs sm:text-sm text-slateText-900 font-medium focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 transition-colors"
+            >
+              <option value="all">Any Duration</option>
+              <option value="short">1 – 3 Days (Short Breaks)</option>
+              <option value="medium">4 – 7 Days (Standard Highlights)</option>
+              <option value="long">8+ Days (Comprehensive Tours)</option>
+            </select>
+          </div>
+
+          <!-- Travel Season / Month Field -->
+          <div>
+            <label for="heroMonthSelect" class="block text-[11px] uppercase font-bold tracking-wider text-slateText-500 mb-1.5">Travel Window</label>
+            <select 
+              id="heroMonthSelect" 
+              class="w-full px-3.5 py-2.5 rounded-xl border border-sandstone-200 bg-sandstone-50 text-xs sm:text-sm text-slateText-900 font-medium focus:border-terracotta-500 focus:ring-1 focus:ring-terracotta-500 transition-colors"
+            >
+              <option value="flexible">Any Season</option>
+              <option value="cool">Nov – Feb (Cool & Dry Season)</option>
+              <option value="warm">Mar – May (Warm Season)</option>
+              <option value="green">Jun – Oct (Green Emerald Season)</option>
+            </select>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="flex items-end">
+            <button 
+              type="submit" 
+              class="w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-terracotta-500 hover:bg-terracotta-600 text-white transition-luxury shadow-md flex items-center justify-center space-x-2"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              <span>Find Journeys</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. TRUST & CREDIBILITY STRIP                                              -->
+  <!-- ========================================================================= -->
+  <section class="bg-sandstone-100 border-b border-sandstone-200 py-6" aria-label="Key Credibility Metrics">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+        
+        <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-3">
+          <div class="w-10 h-10 rounded-full bg-sandstone-200 text-terracotta-500 flex items-center justify-center font-bold text-base flex-shrink-0">
+            🏛
+          </div>
+          <div>
+            <div class="text-xs sm:text-sm font-bold text-slateText-900">Established 2010</div>
+            <div class="text-[11px] text-slateText-500">Over a decade of local on-ground presence</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-3">
+          <div class="w-10 h-10 rounded-full bg-sandstone-200 text-terracotta-500 flex items-center justify-center font-bold text-base flex-shrink-0">
+            📜
+          </div>
+          <div>
+            <div class="text-xs sm:text-sm font-bold text-slateText-900">Official Licenses</div>
+            <div class="text-[11px] text-slateText-500">MoT 098/11 &bull; MoC So. 0021KH/2010</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-3">
+          <div class="w-10 h-10 rounded-full bg-sandstone-200 text-terracotta-500 flex items-center justify-center font-bold text-base flex-shrink-0">
+            🌐
+          </div>
+          <div>
+            <div class="text-xs sm:text-sm font-bold text-slateText-900">CATA & PATA Member</div>
+            <div class="text-[11px] text-slateText-500">Active industry association partner</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-3">
+          <div class="w-10 h-10 rounded-full bg-sandstone-200 text-terracotta-500 flex items-center justify-center font-bold text-base flex-shrink-0">
+            🤝
+          </div>
+          <div>
+            <div class="text-xs sm:text-sm font-bold text-slateText-900">In-Country Concierge</div>
+            <div class="text-[11px] text-slateText-500">Multilingual local travel specialists</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. FEATURED TOURS (STRUCTURED CARD GRID)                                  -->
+  <!-- ========================================================================= -->
+  <section id="tours" class="py-16 sm:py-24 bg-sandstone-50" aria-labelledby="toursHeading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-terracotta-500 mb-2 block">
+            Hand-Crafted Itineraries
+          </span>
+          <h2 id="toursHeading" class="font-serif text-3xl sm:text-4xl font-bold text-slateText-900 tracking-tight">
+            Curated Cambodia Journeys
+          </h2>
+          <p class="mt-2 text-sm text-slateText-500 max-w-xl">
+            Each package is operated directly by 2World Travel with certified guides and private vehicle transport. All routes can be tailored to your pacing.
+          </p>
+        </div>
+        <div class="mt-4 md:mt-0 flex items-center space-x-3">
+          <button 
+            type="button" 
+            onclick="window.resetToursFilter()"
+            class="text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 underline"
+          >
+            Show All Tours
+          </button>
+        </div>
+      </div>
+
+      <!-- Tours Grid Rendered via JavaScript Components -->
+      <div id="featuredToursGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Rendered by js/app.js from TOURS_DATA -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. CAMBODIAN DESTINATIONS (IMAGE-LED EDITORIAL COMPOSITION)               -->
+  <!-- ========================================================================= -->
+  <section id="destinations" class="py-16 sm:py-24 bg-white border-t border-sandstone-200" aria-labelledby="destHeading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-terracotta-500 mb-2 block">
+          Provincial Coverage
+        </span>
+        <h2 id="destHeading" class="font-serif text-3xl sm:text-4xl font-bold text-slateText-900 tracking-tight">
+          Explore Cambodia by Region
+        </h2>
+        <p class="mt-2 text-sm text-slateText-500">
+          From ancient stone empires to wild eastern frontiers and the Gulf of Thailand. Select a region to view matching travel itineraries.
+        </p>
+      </div>
+
+      <!-- Destinations Asymmetric Grid -->
+      <div id="destinationsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Rendered by js/app.js from DESTINATIONS_DATA -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. WHY TRAVEL WITH 2WORLD (CONCRETE DIFFERENTIATORS)                      -->
+  <!-- ========================================================================= -->
+  <section id="why-us" class="py-16 sm:py-24 bg-sandstone-100 border-t border-sandstone-200" aria-labelledby="whyHeading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-terracotta-500 mb-2 block">
+          Operational Standards
+        </span>
+        <h2 id="whyHeading" class="font-serif text-3xl sm:text-4xl font-bold text-slateText-900 tracking-tight">
+          Why Travel With 2World Travel
+        </h2>
+        <p class="mt-2 text-sm text-slateText-500">
+          We believe in direct relationships, on-ground accountability, and transparent travel consultation rather than automated repackaging.
+        </p>
+      </div>
+
+      <!-- Asymmetric Grid of Concrete Differentiators -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <div class="bg-white p-7 rounded-2xl border border-sandstone-200 shadow-soft">
+          <div class="w-12 h-12 rounded-xl bg-terracotta-50 text-terracotta-500 flex items-center justify-center font-bold text-lg mb-5">
+            01
+          </div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">On-Ground Since 2010</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 leading-relaxed">
+            We are a registered Cambodian DMC with active operations in Phnom Penh and Siem Reap, not an overseas reseller without local staff.
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-2xl border border-sandstone-200 shadow-soft">
+          <div class="w-12 h-12 rounded-xl bg-terracotta-50 text-terracotta-500 flex items-center justify-center font-bold text-lg mb-5">
+            02
+          </div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">Accredited Local Guides</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 leading-relaxed">
+            Our guides are Ministry-licensed professionals across 8 languages (English, French, German, Spanish, Japanese, Chinese, Russian, Italian).
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-2xl border border-sandstone-200 shadow-soft">
+          <div class="w-12 h-12 rounded-xl bg-terracotta-50 text-terracotta-500 flex items-center justify-center font-bold text-lg mb-5">
+            03
+          </div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">Verified Transit Network</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 leading-relaxed">
+            Official ticketing broker for Giant Ibis, Mekong Express, Virak Buntham, and chauffeured air-conditioned private vehicles.
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-2xl border border-sandstone-200 shadow-soft">
+          <div class="w-12 h-12 rounded-xl bg-forest-900 text-khmerGold-400 flex items-center justify-center font-bold text-lg mb-5">
+            04
+          </div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">Tailor-Made Flexibility</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 leading-relaxed">
+            Every itinerary can be modified. Add free days, alter physical pacing, upgrade hotels, or incorporate specialized cultural interests.
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-2xl border border-sandstone-200 shadow-soft">
+          <div class="w-12 h-12 rounded-xl bg-forest-900 text-khmerGold-400 flex items-center justify-center font-bold text-lg mb-5">
+            05
+          </div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">Transparent Quotations</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 leading-relaxed">
+            No hidden fees. Every proposal includes a clear itemized breakdown of hotel tiers, vehicle specifications, meal basis, and entrance tickets.
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-2xl border border-sandstone-200 shadow-soft">
+          <div class="w-12 h-12 rounded-xl bg-forest-900 text-khmerGold-400 flex items-center justify-center font-bold text-lg mb-5">
+            06
+          </div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">In-Country Support</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 leading-relaxed">
+            Direct operational contact with your designated travel coordinator throughout your stay via phone, email, and messaging.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 8. TRAVEL SERVICES (QUIETER INFORMATION LAYOUT)                           -->
+  <!-- ========================================================================= -->
+  <section id="services" class="py-16 sm:py-24 bg-white border-t border-sandstone-200" aria-labelledby="servicesHeading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-terracotta-500 mb-2 block">
+            End-to-End Capabilities
+          </span>
+          <h2 id="servicesHeading" class="font-serif text-3xl sm:text-4xl font-bold text-slateText-900 tracking-tight">
+            Comprehensive Travel Services
+          </h2>
+          <p class="mt-2 text-sm text-slateText-500 max-w-xl">
+            Beyond packaged tours, our agency provides logistics and ticketing across Cambodia for independent travelers and corporate clients.
+          </p>
+        </div>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Service 1: Inbound Packages -->
+        <div class="p-6 rounded-2xl border border-sandstone-200 bg-sandstone-50 hover:bg-white hover:shadow-soft transition-luxury">
+          <div class="text-terracotta-500 text-xs font-semibold uppercase tracking-wider mb-2">Inbound Tourism</div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">Multi-Day Packages</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 mb-4 leading-relaxed">
+            Full-service private and Seat-in-Coach itineraries covering cultural highlights, eco-trekking, and coastal retreats.
+          </p>
+          <a href="#tours" class="text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 inline-flex items-center">
+            View Package Tours &rarr;
+          </a>
+        </div>
+
+        <!-- Service 2: Transport & Ticketing -->
+        <div class="p-6 rounded-2xl border border-sandstone-200 bg-sandstone-50 hover:bg-white hover:shadow-soft transition-luxury">
+          <div class="text-terracotta-500 text-xs font-semibold uppercase tracking-wider mb-2">Transit Brokerage</div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">Bus & Train Ticketing</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 mb-4 leading-relaxed">
+            Consolidated booking for Giant Ibis, Mekong Express, Virak Buntham, and Royal Railway Cambodia routes.
+          </p>
+          <button type="button" onclick="window.openInquiryModal('TRANS-TICKET', 'Transport & Bus Ticketing')" class="text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 inline-flex items-center">
+            Request Timetable & Rates &rarr;
+          </button>
+        </div>
+
+        <!-- Service 3: Chauffeured Fleet -->
+        <div class="p-6 rounded-2xl border border-sandstone-200 bg-sandstone-50 hover:bg-white hover:shadow-soft transition-luxury">
+          <div class="text-terracotta-500 text-xs font-semibold uppercase tracking-wider mb-2">Private Transport</div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">Chauffeured Fleet Hire</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 mb-4 leading-relaxed">
+            Clean, air-conditioned sedans, SUVs, 12-seater passenger vans, and 25–45 seat tourist coaches with licensed drivers.
+          </p>
+          <button type="button" onclick="window.openInquiryModal('FLEET-HIRE', 'Private Vehicle Charter')" class="text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 inline-flex items-center">
+            Inquire Fleet Availability &rarr;
+          </button>
+        </div>
+
+        <!-- Service 4: Tour Guides -->
+        <div class="p-6 rounded-2xl border border-sandstone-200 bg-sandstone-50 hover:bg-white hover:shadow-soft transition-luxury">
+          <div class="text-terracotta-500 text-xs font-semibold uppercase tracking-wider mb-2">Accredited Specialists</div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">Multilingual Tour Guides</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 mb-4 leading-relaxed">
+            Daily and half-day certified guiding in English, French, German, Spanish, Japanese, Chinese, Russian, and Italian.
+          </p>
+          <button type="button" onclick="window.openInquiryModal('GUIDE-DESK', 'Multilingual Tour Guide')" class="text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 inline-flex items-center">
+            Guide Tariffs & Availability &rarr;
+          </button>
+        </div>
+
+        <!-- Service 5: Visa Assistance -->
+        <div class="p-6 rounded-2xl border border-sandstone-200 bg-sandstone-50 hover:bg-white hover:shadow-soft transition-luxury">
+          <div class="text-terracotta-500 text-xs font-semibold uppercase tracking-wider mb-2">Consular Support</div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">Visa Extensions & Advice</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 mb-4 leading-relaxed">
+            Facilitation for Cambodian Tourist (T) and Ordinary (E) visa extensions, official eVisa guidance, and outbound visa processing.
+          </p>
+          <button type="button" onclick="window.openInquiryModal('VISA-DESK', 'Visa Services & Extensions')" class="text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 inline-flex items-center">
+            Inquire Visa Requirements &rarr;
+          </button>
+        </div>
+
+        <!-- Service 6: MICE & Corporate -->
+        <div class="p-6 rounded-2xl border border-sandstone-200 bg-sandstone-50 hover:bg-white hover:shadow-soft transition-luxury">
+          <div class="text-terracotta-500 text-xs font-semibold uppercase tracking-wider mb-2">Corporate Logistics</div>
+          <h3 class="font-serif text-xl font-bold text-slateText-900 mb-2">MICE & Event Planning</h3>
+          <p class="text-xs sm:text-sm text-slateText-500 mb-4 leading-relaxed">
+            Meeting hall rentals, audiovisual equipment (projectors, sound systems), and corporate team retreat logistics in Phnom Penh & Siem Reap.
+          </p>
+          <button type="button" onclick="window.openInquiryModal('MICE-DESK', 'MICE & Corporate Event Quote')" class="text-xs font-semibold text-terracotta-500 hover:text-terracotta-600 inline-flex items-center">
+            Request Corporate Proposal &rarr;
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 9. FEATURED JOURNEY (ASYMMETRIC MAGAZINE-STYLE COMPOSITION)                -->
+  <!-- ========================================================================= -->
+  <section class="py-16 sm:py-24 bg-forest-950 text-white overflow-hidden" aria-labelledby="spotlightHeading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left: Editorial Content -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-terracotta-500/20 text-terracotta-100 border border-terracotta-500/30">
+            Featured 7-Day Route &bull; Code: 2WT-SCE-7D6N
+          </div>
+          
+          <h2 id="spotlightHeading" class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+            South Coast Explorer: Kampot, Kep & Koh Rong
+          </h2>
+          
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed">
+            Experience the tranquil rhythm of southern Cambodia. Travel from Phnom Penh down to the colonial French architecture and pepper plantations of Kampot, feast on fresh seafood at the Kep crab market, and conclude with island relaxation on the turquoise beaches of Koh Rong.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-forest-900/60 border border-forest-800">
+              <span class="block text-xs uppercase text-khmerGold-400 font-bold mb-1">Route Corridor</span>
+              <span class="text-xs sm:text-sm text-stone-200">Phnom Penh &rarr; Kampot & Kep &rarr; Koh Rong</span>
+            </div>
+            <div class="p-4 rounded-xl bg-forest-900/60 border border-forest-800">
+              <span class="block text-xs uppercase text-khmerGold-400 font-bold mb-1">Board & Transport</span>
+              <span class="text-xs sm:text-sm text-stone-200">B&B + Selected Meals, Chauffeur & Speedboat</span>
+            </div>
+          </div>
+
+          <div class="pt-4 flex flex-wrap items-center gap-4">
+            <button 
+              type="button" 
+              onclick="window.openInquiryModal('2WT-SCE-7D6N', 'South Coast Explorer 7D6N')" 
+              class="px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-terracotta-500 text-white hover:bg-terracotta-600 transition-luxury shadow-md"
+            >
+              Inquire About This Route
+            </button>
+            <a 
+              href="tour-detail.html?code=2WT-SCE-7D6N" 
+              class="px-5 py-3 rounded-xl text-xs sm:text-sm font-medium text-stone-300 hover:text-white bg-white/10 hover:bg-white/15 transition-colors"
+            >
+              View Day-by-Day Itinerary &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Layered Visual Magazine Spread -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-elevated border border-forest-800 aspect-[4/3] bg-stone-900">
+            <img 
+              src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80" 
+              alt="Pristine white sand beach of Koh Rong island" 
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-forest-950 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Inset Float Card -->
+          <div class="absolute -bottom-6 -left-6 sm:bottom-6 sm:left-6 max-w-xs bg-forest-900/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-forest-700 shadow-xl hidden sm:block">
+            <div class="flex items-center space-x-2 text-khmerGold-400 text-xs font-semibold mb-1">
+              <span>★ Authentic Inbound Journey</span>
+            </div>
+            <p class="text-xs text-stone-300">
+              Includes organic pepper farm tour, Bokor National Park plateau, and scheduled offshore catamaran transfers.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 10. HISTORICAL TESTIMONIALS (RESTRAINED HERITAGE TREATMENT)               -->
+  <!-- ========================================================================= -->
+  <section id="reviews" class="py-16 sm:py-24 bg-sandstone-50 border-t border-sandstone-200" aria-labelledby="reviewsHeading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-terracotta-500 mb-2 block">
+          Client Heritage Archive
+        </span>
+        <h2 id="reviewsHeading" class="font-serif text-3xl sm:text-4xl font-bold text-slateText-900 tracking-tight">
+          Client Feedback (2010–2013 Archive)
+        </h2>
+        <p class="mt-2 text-sm text-slateText-500">
+          Historical records from international travelers hosted during our founding years, reflecting our enduring commitment to attentiveness and local care.
+        </p>
+      </div>
+
+      <!-- Restrained Review Cards (Accurate Historic Dates, Zero Fabricated Recency) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Review 1 -->
+        <article class="bg-white p-6 sm:p-7 rounded-2xl border border-sandstone-200 shadow-soft flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slateText-400 mb-4 pb-3 border-b border-sandstone-100">
+              <span class="font-semibold text-terracotta-500">Sylvie & Pierre Durand</span>
+              <span>France &bull; Nov 2012</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slateText-700 italic leading-relaxed mb-4">
+              "Our French-speaking guide, Vanna, was remarkably knowledgeable about the Angkor temples and Cambodian history. The air-conditioned van was always on time with cold water waiting. 2World Travel handled every detail seamlessly."
+            </p>
+          </div>
+          <div class="text-[11px] text-slateText-400 font-medium">
+            Itinerary: Phnom Penh & Siem Reap Classical (6D)
+          </div>
+        </article>
+
+        <!-- Review 2 -->
+        <article class="bg-white p-6 sm:p-7 rounded-2xl border border-sandstone-200 shadow-soft flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slateText-400 mb-4 pb-3 border-b border-sandstone-100">
+              <span class="font-semibold text-terracotta-500">Mark & Sarah Whittaker</span>
+              <span>Australia &bull; Feb 2013</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slateText-700 italic leading-relaxed mb-4">
+              "A fantastic specialist bird-watching trip. We managed to spot the Giant Ibis at Tmatboey and our driver navigated the remote dirt tracks with great skill. Honest advice and completely transparent arrangements."
+            </p>
+          </div>
+          <div class="text-[11px] text-slateText-400 font-medium">
+            Itinerary: Birding & Northern Temples Expedition
+          </div>
+        </article>
+
+        <!-- Review 3 -->
+        <article class="bg-white p-6 sm:p-7 rounded-2xl border border-sandstone-200 shadow-soft flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slateText-400 mb-4 pb-3 border-b border-sandstone-100">
+              <span class="font-semibold text-terracotta-500">Dr. Hans-Jürgen Krause</span>
+              <span>Germany &bull; Dec 2011</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slateText-700 italic leading-relaxed mb-4">
+              "Very reliable service from the Phnom Penh office. The itinerary across Kampot and Kep was perfectly balanced, allowing us to see colonial ruins and enjoy local dining without any rush. Highly recommended."
+            </p>
+          </div>
+          <div class="text-[11px] text-slateText-400 font-medium">
+            Itinerary: South Coast & Bokor Private Tour
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 11. CONVERSION CTA (TELL US ABOUT YOUR TRIP)                               -->
+  <!-- ========================================================================= -->
+  <section id="contact" class="py-16 sm:py-20 bg-forest-900 text-white relative overflow-hidden" aria-labelledby="ctaHeading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="bg-forest-950/80 rounded-3xl p-8 sm:p-12 border border-forest-800 shadow-elevated flex flex-col lg:flex-row items-center justify-between gap-8">
+        
+        <div class="max-w-2xl text-center lg:text-left">
+          <span class="text-xs uppercase font-bold tracking-wider text-khmerGold-400 mb-2 block">
+            Tailor-Made Cambodian Travel
+          </span>
+          <h2 id="ctaHeading" class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight">
+            Tell Us About Your Cambodian Journey
+          </h2>
+          <p class="mt-3 text-sm text-stone-300 leading-relaxed">
+            Whether you are planning an intimate private cultural tour, a wildlife expedition, or corporate group logistics, our team is ready to assist with honest advice and itemized quotes.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-4 flex-shrink-0 w-full sm:w-auto">
+          <button 
+            type="button" 
+            onclick="window.openInquiryModal()" 
+            class="w-full sm:w-auto px-8 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-terracotta-500 hover:bg-terracotta-600 text-white transition-luxury shadow-md text-center"
+          >
+            Start Trip Inquiry
+          </button>
+          <a 
+            href="tel:+85523222727" 
+            class="w-full sm:w-auto px-6 py-3.5 rounded-xl text-xs sm:text-sm font-medium bg-forest-900 hover:bg-forest-800 text-stone-200 border border-forest-700 transition-colors text-center"
+          >
+            Call +855 23 222 727
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 12. DETAILED FOOTER                                                       -->
+  <!-- ========================================================================= -->
+  <footer class="bg-forest-950 text-stone-400 text-xs pt-16 pb-12 border-t border-forest-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-forest-900">
+        
+        <!-- Col 1 & 2: Brand & Corporate Verification -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-forest-900 text-khmerGold-400 flex items-center justify-center font-serif text-lg font-bold">
+              2W
+            </div>
+            <span class="font-serif text-xl font-bold text-white">2World Travel (Cambodia) Ltd</span>
+          </div>
+          
+          <p class="text-stone-400 text-xs leading-relaxed max-w-sm">
+            Accredited inbound destination management company and travel agency founded circa 2010. Specializing in customized multi-day tours, inter-city transport, multilingual guides, visa facilitation, and corporate MICE logistics.
+          </p>
+
+          <div class="pt-2 text-[11px] text-stone-400 space-y-1">
+            <div><strong class="text-stone-300">Ministry of Tourism License:</strong> 098/11</div>
+            <div><strong class="text-stone-300">Ministry of Commerce License:</strong> So. 0021KH/2010</div>
+            <div><strong class="text-stone-300">Active Industry Member:</strong> CATA & PATA</div>
+          </div>
+        </div>
+
+        <!-- Col 3: Departmental Email Matrix (Verified from Audit) -->
+        <div>
+          <h4 class="text-stone-200 font-semibold uppercase tracking-wider text-[11px] mb-3">
+            Departmental Directory
+          </h4>
+          <ul class="space-y-2 text-xs">
+            <li>
+              <span class="text-stone-400 block text-[10px] uppercase font-medium">General Inquiries</span>
+              <a href="mailto:info@2worldtravel.com" class="text-stone-300 hover:text-white transition-colors">info@2worldtravel.com</a>
+            </li>
+            <li>
+              <span class="text-stone-400 block text-[10px] uppercase font-medium">Tour Reservations</span>
+              <a href="mailto:tours@2worldtravel.com" class="text-stone-300 hover:text-white transition-colors">tours@2worldtravel.com</a>
+            </li>
+            <li>
+              <span class="text-stone-400 block text-[10px] uppercase font-medium">Transport & Ticketing</span>
+              <a href="mailto:ticket@2worldtravel.com" class="text-stone-300 hover:text-white transition-colors">ticket@2worldtravel.com</a>
+            </li>
+            <li>
+              <span class="text-stone-400 block text-[10px] uppercase font-medium">Visa Services</span>
+              <a href="mailto:visa@2worldtravel.com" class="text-stone-300 hover:text-white transition-colors">visa@2worldtravel.com</a>
+            </li>
+            <li>
+              <span class="text-stone-400 block text-[10px] uppercase font-medium">Siem Reap Operations</span>
+              <a href="mailto:angkor@2worldtravel.com" class="text-stone-300 hover:text-white transition-colors">angkor@2worldtravel.com</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Quick Navigation -->
+        <div>
+          <h4 class="text-stone-200 font-semibold uppercase tracking-wider text-[11px] mb-3">
+            Travel Planning
+          </h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#tours" class="hover:text-white transition-colors">Siem Reap & Angkor Packages</a></li>
+            <li><a href="#tours" class="hover:text-white transition-colors">Phnom Penh Historical Tours</a></li>
+            <li><a href="#tours" class="hover:text-white transition-colors">South Coast & Islands (7D6N)</a></li>
+            <li><a href="#tours" class="hover:text-white transition-colors">Northeast Eco-Trails & Dolphins</a></li>
+            <li><a href="#tours" class="hover:text-white transition-colors">Cambodia Birding Expedition</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Giant Ibis & Bus Tickets</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Multilingual Tour Guides</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Operational Centers & Hotlines -->
+        <div>
+          <h4 class="text-stone-200 font-semibold uppercase tracking-wider text-[11px] mb-3">
+            Operational Centers
+          </h4>
+          <div class="space-y-3 text-xs">
+            <div>
+              <span class="text-stone-400 block text-[10px] uppercase font-medium">Phnom Penh Head Office</span>
+              <p class="text-stone-300">Phnom Penh, Kingdom of Cambodia</p>
+              <p class="text-[11px] text-stone-400">Tel: +855 (0)23 222 727</p>
+              <p class="text-[11px] text-stone-400">Hotlines: 012 222 623 / 016 985 400</p>
+            </div>
+            <div>
+              <span class="text-stone-400 block text-[10px] uppercase font-medium">Siem Reap Operations Desk</span>
+              <p class="text-stone-300">Siem Reap Province, Cambodia</p>
+              <p class="text-[11px] text-stone-400">Desk: angkor@2worldtravel.com</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-400 gap-4">
+        <div>
+          &copy; 2010–2026 2World Travel (Cambodia) Ltd. All rights reserved.
+        </div>
+        <div class="flex items-center space-x-4">
+          <span>Terms & Conditions (25% Booking Deposit Policy)</span>
+          <span>&bull;</span>
+          <span>Payment Wire Guidelines</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Application Controller -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

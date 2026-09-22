@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Your Trip — 2World Travel Cambodia</title>
+  <meta name="description" content="Custom Cambodia itinerary planning. Tailored private journeys, licensed guides, and seamless transport arranged by our local travel team in Phnom Penh and Siem Reap.">
+
+  <!-- Tailwind CSS CDN with Nuanced Palette -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surface: {
+              base: '#FAF8F5',
+              warm: '#F7F3EC',
+              soft: '#F3EEE5',
+              sand: '#EFE8DC',
+            },
+            earth: {
+              dark: '#20382E',
+              muted: '#263F34',
+              deep: '#1A2D25',
+            },
+            text: {
+              primary: '#20231F',
+              muted: '#5C645F',
+              subtle: '#878E89',
+            },
+            terracotta: {
+              DEFAULT: '#B66E53',
+              hover: '#A2583F',
+            },
+            gold: {
+              DEFAULT: '#CFA365',
+              muted: '#E2D1B3',
+            },
+            borderCustom: 'rgba(60, 55, 45, 0.10)',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-surface-base text-text-primary font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- ========================================================================= -->
+  <!-- 1. DEDICATED PAGE HEADER (Clean, Solid, Back to Home)                     -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-surface-warm border-b border-[rgba(60,55,45,0.10)] transition-luxury">
+    <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-[72px]">
+        
+        <!-- Brand Identity -->
+        <a href="index.html" class="flex items-center space-x-3 group" aria-label="2World Travel Cambodia Home">
+          <div class="w-8 h-8 rounded-md bg-earth-dark text-gold flex items-center justify-center font-serif text-base font-bold">
+            2W
+          </div>
+          <div>
+            <div class="font-serif font-bold text-lg sm:text-xl text-text-primary tracking-tight leading-none group-hover:text-terracotta transition-colors">
+              2World Travel
+            </div>
+            <div class="text-[10px] uppercase font-semibold tracking-wider text-text-muted mt-0.5">
+              Cambodia &bull; Est. 2010
+            </div>
+          </div>
+        </a>
+
+        <!-- Return Link -->
+        <a 
+          href="index.html" 
+          class="inline-flex items-center text-xs font-semibold text-text-muted hover:text-text-primary transition-colors py-2 px-3 rounded-md hover:bg-surface-base"
+        >
+          <i data-lucide="arrow-left" class="w-4 h-4 mr-1.5"></i>
+          <span>Return Home</span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. MAIN PLANNING WORKFLOW (Single-Column Mobile-First Layout)              -->
+  <!-- ========================================================================= -->
+  <main class="flex-grow max-w-2xl mx-auto w-full px-5 py-10 sm:py-16">
+    
+    <!-- Hero / Introduction -->
+    <div class="mb-10 pb-8 border-b border-[rgba(60,55,45,0.10)]">
+      <span class="text-[11px] uppercase tracking-[0.2em] font-semibold text-terracotta mb-2 block">
+        Bespoke Consultation
+      </span>
+      <h1 class="font-serif text-3xl sm:text-4xl font-bold text-text-primary tracking-tight mb-3">
+        Plan Your Cambodian Journey
+      </h1>
+      <p class="text-sm sm:text-base text-text-muted leading-relaxed">
+        Every itinerary is custom-crafted by our travel team in Phnom Penh and Siem Reap. Share your preferences below and we will prepare an itemized route proposal.
+      </p>
+
+      <!-- Trust Reminder -->
+      <div class="mt-5 p-3.5 bg-surface-warm border border-[rgba(60,55,45,0.10)] rounded-md text-xs text-text-muted flex items-start space-x-2.5">
+        <i data-lucide="shield-check" class="w-4 h-4 text-terracotta flex-shrink-0 mt-0.5"></i>
+        <span>
+          <strong>Direct Travel Team:</strong> Licensed operator (MoT Lic. 098/11 &bull; MoC So. 0021KH/2010). No automated charges or middleman fees.
+        </span>
+      </div>
+    </div>
+
+    <!-- The Planning Form -->
+    <form id="planTripForm" class="space-y-10" onsubmit="handlePlanSubmit(event)">
+      
+      <!-- Section 1: Trip Basics -->
+      <section class="space-y-4">
+        <div>
+          <h2 class="font-serif text-xl font-bold text-text-primary">1. Trip Basics</h2>
+          <p class="text-xs text-text-muted">Tell us about the style and timeframe of your journey.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="travelStyle" class="block text-xs font-semibold text-text-primary mb-1.5">Travel Style</label>
+            <select 
+              id="travelStyle" 
+              name="travelStyle" 
+              class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary focus:border-terracotta transition-colors"
+            >
+              <option value="Classic Cultural Heritage">Classic Cultural Heritage</option>
+              <option value="Slow Travel & Nature">Slow Travel & Coastal Escape</option>
+              <option value="Eco-Adventure & Wildlife">Eco-Adventure & Wildlife Trekking</option>
+              <option value="Special Interest: Bird Watching">Special Interest: Bird Watching</option>
+              <option value="Seat-in-Coach Shared Tour">Seat-in-Coach (SIC Group Departure)</option>
+              <option value="Corporate / MICE Logistics">Corporate Retreat / MICE Logistics</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="estimatedDuration" class="block text-xs font-semibold text-text-primary mb-1.5">Approximate Duration</label>
+            <select 
+              id="estimatedDuration" 
+              name="estimatedDuration" 
+              class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary focus:border-terracotta transition-colors"
+            >
+              <option value="3 to 4 Days (Short Break)">3 to 4 Days (Short Break)</option>
+              <option value="5 to 7 Days (Classic Discovery)" selected>5 to 7 Days (Classic Discovery)</option>
+              <option value="8 to 11 Days (Comprehensive)">8 to 11 Days (Comprehensive)</option>
+              <option value="12 to 16+ Days (Grand Tour)">12 to 16+ Days (Grand Expedition)</option>
+              <option value="Custom Duration">Custom Duration</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="specificTourInterest" class="block text-xs font-semibold text-text-primary mb-1.5">Specific Tour Package or Code (Optional)</label>
+          <input 
+            type="text" 
+            id="specificTourInterest" 
+            name="specificTourInterest" 
+            placeholder="e.g. South Coast Explorer (2WT-SCE-7D6N)"
+            class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary placeholder-text-subtle focus:border-terracotta transition-colors"
+          />
+        </div>
+      </section>
+
+      <!-- Section 2: Destinations -->
+      <section class="space-y-4 pt-6 border-t border-[rgba(60,55,45,0.10)]">
+        <div>
+          <h2 class="font-serif text-xl font-bold text-text-primary">2. Desired Destinations</h2>
+          <p class="text-xs text-text-muted">Select all provinces and regions you would like to include.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <label class="flex items-start space-x-3 p-3 rounded-md border border-[rgba(60,55,45,0.12)] bg-surface-warm cursor-pointer hover:border-terracotta/50 transition-colors">
+            <input type="checkbox" name="destinations" value="Siem Reap & Angkor" checked class="mt-0.5 rounded-sm text-terracotta focus:ring-terracotta">
+            <div>
+              <span class="block text-xs font-bold text-text-primary">Siem Reap & Angkor</span>
+              <span class="block text-[11px] text-text-muted">Angkor Wat, Bayon, Tonle Sap lake</span>
+            </div>
+          </label>
+
+          <label class="flex items-start space-x-3 p-3 rounded-md border border-[rgba(60,55,45,0.12)] bg-surface-warm cursor-pointer hover:border-terracotta/50 transition-colors">
+            <input type="checkbox" name="destinations" value="Phnom Penh & Mekong" checked class="mt-0.5 rounded-sm text-terracotta focus:ring-terracotta">
+            <div>
+              <span class="block text-xs font-bold text-text-primary">Phnom Penh & Mekong</span>
+              <span class="block text-[11px] text-text-muted">Royal Palace, museums, riverside heritage</span>
+            </div>
+          </label>
+
+          <label class="flex items-start space-x-3 p-3 rounded-md border border-[rgba(60,55,45,0.12)] bg-surface-warm cursor-pointer hover:border-terracotta/50 transition-colors">
+            <input type="checkbox" name="destinations" value="South Coast & Islands" class="mt-0.5 rounded-sm text-terracotta focus:ring-terracotta">
+            <div>
+              <span class="block text-xs font-bold text-text-primary">South Coast & Islands</span>
+              <span class="block text-[11px] text-text-muted">Kampot pepper, Kep seafood, Koh Rong beaches</span>
+            </div>
+          </label>
+
+          <label class="flex items-start space-x-3 p-3 rounded-md border border-[rgba(60,55,45,0.12)] bg-surface-warm cursor-pointer hover:border-terracotta/50 transition-colors">
+            <input type="checkbox" name="destinations" value="Northeast Wilderness" class="mt-0.5 rounded-sm text-terracotta focus:ring-terracotta">
+            <div>
+              <span class="block text-xs font-bold text-text-primary">Northeast Wilderness</span>
+              <span class="block text-[11px] text-text-muted">Kratie dolphins, Mondulkiri pine forests & elephants</span>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- Section 3: Travel Window & Party -->
+      <section class="space-y-4 pt-6 border-t border-[rgba(60,55,45,0.10)]">
+        <div>
+          <h2 class="font-serif text-xl font-bold text-text-primary">3. Timing & Travelers</h2>
+          <p class="text-xs text-text-muted">When are you hoping to visit and who will be traveling?</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label for="travelSeason" class="block text-xs font-semibold text-text-primary mb-1.5">Season / Window</label>
+            <select 
+              id="travelSeason" 
+              name="travelSeason" 
+              class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary focus:border-terracotta transition-colors"
+            >
+              <option value="Flexible / Not Fixed">Flexible / Not Fixed</option>
+              <option value="Nov – Feb (Cool & Dry)">Nov – Feb (Cool & Dry Season)</option>
+              <option value="Mar – May (Warm Season)">Mar – May (Warm Season)</option>
+              <option value="Jun – Oct (Green Emerald Season)">Jun – Oct (Green Emerald Season)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="paxAdults" class="block text-xs font-semibold text-text-primary mb-1.5">Adults (12+)</label>
+            <input 
+              type="number" 
+              id="paxAdults" 
+              name="paxAdults" 
+              min="1" 
+              max="50" 
+              value="2" 
+              class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary focus:border-terracotta transition-colors"
+            />
+          </div>
+
+          <div>
+            <label for="paxChildren" class="block text-xs font-semibold text-text-primary mb-1.5">Children (Under 12)</label>
+            <input 
+              type="number" 
+              id="paxChildren" 
+              name="paxChildren" 
+              min="0" 
+              max="20" 
+              value="0" 
+              class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary focus:border-terracotta transition-colors"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Accommodation & Guiding -->
+      <section class="space-y-4 pt-6 border-t border-[rgba(60,55,45,0.10)]">
+        <div>
+          <h2 class="font-serif text-xl font-bold text-text-primary">4. Accommodation & Guiding</h2>
+          <p class="text-xs text-text-muted">Select your preferred hotel tier and guide languages.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="hotelTier" class="block text-xs font-semibold text-text-primary mb-1.5">Hotel Preference</label>
+            <select 
+              id="hotelTier" 
+              name="hotelTier" 
+              class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary focus:border-terracotta transition-colors"
+            >
+              <option value="Boutique Heritage (4-Star)" selected>Boutique Heritage (4-Star)</option>
+              <option value="Luxury Resort (5-Star)">Luxury Resort (5-Star)</option>
+              <option value="Comfort Standard (3-Star)">Comfort Standard (3-Star)</option>
+              <option value="Transport & Guides Only (No Hotels)">Transport & Guides Only</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="guideLanguage" class="block text-xs font-semibold text-text-primary mb-1.5">Guide Language</label>
+            <select 
+              id="guideLanguage" 
+              name="guideLanguage" 
+              class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary focus:border-terracotta transition-colors"
+            >
+              <option value="English">English</option>
+              <option value="French">French</option>
+              <option value="German">German</option>
+              <option value="Spanish">Spanish</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
+              <option value="Russian">Russian</option>
+              <option value="Driver Only (No Guide)">Driver Only (No Guide)</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Special Requests -->
+      <section class="space-y-4 pt-6 border-t border-[rgba(60,55,45,0.10)]">
+        <div>
+          <h2 class="font-serif text-xl font-bold text-text-primary">5. Special Requests</h2>
+          <p class="text-xs text-text-muted">Tell us about dietary needs, travel pacing, or specific sights.</p>
+        </div>
+
+        <div>
+          <textarea 
+            id="specialNotes" 
+            name="specialNotes" 
+            rows="4" 
+            placeholder="Tell us about mobility preferences, specific temples or bird habitats, vegetarian/vegan requirements, or celebration plans..."
+            class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary placeholder-text-subtle focus:border-terracotta transition-colors"
+          ></textarea>
+        </div>
+      </section>
+
+      <!-- Section 6: Contact Details -->
+      <section class="space-y-4 pt-6 border-t border-[rgba(60,55,45,0.10)]">
+        <div>
+          <h2 class="font-serif text-xl font-bold text-text-primary">6. Your Contact Details</h2>
+          <p class="text-xs text-text-muted">Where should our travel coordinator send your proposal?</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="fullName" class="block text-xs font-semibold text-text-primary mb-1.5">Full Name *</label>
+            <input 
+              type="text" 
+              id="fullName" 
+              name="fullName" 
+              required 
+              placeholder="Eleanor Vance" 
+              class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary placeholder-text-subtle focus:border-terracotta transition-colors"
+            />
+          </div>
+
+          <div>
+            <label for="emailAddress" class="block text-xs font-semibold text-text-primary mb-1.5">Email Address *</label>
+            <input 
+              type="email" 
+              id="emailAddress" 
+              name="emailAddress" 
+              required 
+              placeholder="eleanor@example.com" 
+              class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary placeholder-text-subtle focus:border-terracotta transition-colors"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="phoneNumber" class="block text-xs font-semibold text-text-primary mb-1.5">Phone / WhatsApp (Optional)</label>
+            <input 
+              type="tel" 
+              id="phoneNumber" 
+              name="phoneNumber" 
+              placeholder="+1 555 0192" 
+              class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary placeholder-text-subtle focus:border-terracotta transition-colors"
+            />
+          </div>
+
+          <div>
+            <label for="countryResidence" class="block text-xs font-semibold text-text-primary mb-1.5">Country of Residence</label>
+            <input 
+              type="text" 
+              id="countryResidence" 
+              name="countryResidence" 
+              placeholder="e.g. France, Australia, United States" 
+              class="w-full px-3.5 py-2.5 rounded-md border border-[rgba(60,55,45,0.15)] bg-white text-sm text-text-primary placeholder-text-subtle focus:border-terracotta transition-colors"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Submit Action Area -->
+      <div class="pt-6 border-t border-[rgba(60,55,45,0.10)] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-xs text-text-muted text-center sm:text-left">
+          <p>Responses provided within <strong>24 business hours</strong>.</p>
+          <p class="text-[11px] text-text-subtle mt-0.5">Need immediate assistance? Call <a href="tel:+85523222727" class="underline font-semibold text-text-primary">+855 23 222 727</a></p>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full sm:w-auto px-7 py-3.5 rounded-md text-sm font-semibold bg-terracotta text-white hover:bg-terracotta-hover transition-luxury inline-flex items-center justify-center space-x-2"
+        >
+          <span>Submit Trip Inquiry</span>
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+    </form>
+
+    <!-- Success Confirmation State (Displayed inline without modals!) -->
+    <div id="planSuccessState" class="hidden p-8 sm:p-12 text-center bg-surface-warm border border-[rgba(60,55,45,0.12)] rounded-md space-y-4 my-8">
+      <div class="w-12 h-12 rounded-md bg-earth-dark text-white flex items-center justify-center mx-auto">
+        <i data-lucide="check" class="w-6 h-6"></i>
+      </div>
+      <h2 class="font-serif text-2xl sm:text-3xl font-bold text-text-primary">Trip Inquiry Received</h2>
+      <p class="text-sm text-text-muted max-w-md mx-auto leading-relaxed">
+        Thank you for trusting <strong>2World Travel Cambodia</strong>. Our senior travel coordinator will review your requirements and reply with a tailored itinerary proposal.
+      </p>
+      <div class="pt-4 flex flex-wrap justify-center gap-3">
+        <a 
+          href="index.html" 
+          class="px-5 py-2.5 rounded-md text-xs font-semibold bg-earth-dark text-white hover:bg-earth-deep transition-colors"
+        >
+          Return to Homepage
+        </a>
+        <a 
+          href="index.html#tours" 
+          class="px-5 py-2.5 rounded-md text-xs font-semibold border border-[rgba(60,55,45,0.20)] text-text-primary hover:bg-surface-base transition-colors"
+        >
+          Browse More Tours
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 3. FOOTER                                                                 -->
+  <!-- ========================================================================= -->
+  <footer class="bg-earth-deep text-stone-400 text-xs pt-12 pb-8 border-t border-[rgba(60,55,45,0.15)]">
+    <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="font-serif font-bold text-stone-200">2World Travel (Cambodia) Ltd</p>
+        <p class="text-[11px] text-stone-400 mt-0.5">Ministry of Tourism Lic. 098/11 &bull; Ministry of Commerce Lic. So. 0021KH/2010</p>
+      </div>
+      <div class="text-[11px] text-stone-400">
+        &copy; 2010–2026 2World Travel Cambodia. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Pre-populate tour code if passed in URL (?tour=...)
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tourParam = urlParams.get('tour');
+      if (tourParam) {
+        const input = document.getElementById('specificTourInterest');
+        if (input) {
+          input.value = decodeURIComponent(tourParam);
+        }
+      }
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+
+    function handlePlanSubmit(event) {
+      event.preventDefault();
+      const form = document.getElementById('planTripForm');
+      const success = document.getElementById('planSuccessState');
+      if (form && success) {
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      }
+    }
+  </script>
+</body>
+</html>

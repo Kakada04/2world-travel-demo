@@ -1,27 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Adapted Gemini Palette - Flat, Warm, Editorial */
+  /* Nuanced, Organic Travel Palette (No pure white #FFF or pure black #000) */
   --color-surface-base: #FAF8F5;
-  --color-surface-raised: #FFFFFF;
-  --color-surface-warm: #F4EFE7;
+  --color-surface-warm: #F7F3EC;
+  --color-surface-soft: #F3EEE5;
+  --color-surface-sand: #EFE8DC;
   
-  --color-forest-deep: #1B3B2B;
-  --color-forest-dark: #142E21;
-  --color-forest-muted: #244C38;
+  --color-earth-dark: #20382E;
+  --color-earth-muted: #263F34;
+  --color-earth-deep: #1A2D25;
   
-  --color-text-primary: #191C1A;
+  --color-text-primary: #20231F;
   --color-text-muted: #5C645F;
-  --color-text-subtle: #8A928D;
+  --color-text-subtle: #878E89;
   
-  --color-terracotta: #C25E38;
-  --color-terracotta-hover: #A84F2E;
+  --color-terracotta: #B66E53;
+  --color-terracotta-hover: #A2583F;
   
-  --color-gold: #D4A359;
-  --color-gold-muted: #EAD8B8;
+  --color-gold: #CFA365;
+  --color-gold-muted: #E2D1B3;
   
-  --color-border: rgba(25, 28, 26, 0.08);
-  --color-border-subtle: rgba(25, 28, 26, 0.05);
+  --color-border: rgba(60, 55, 45, 0.10);
+  --color-border-subtle: rgba(60, 55, 45, 0.06);
 
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
@@ -62,12 +63,12 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
-/* Flat transitions */
+/* Calm, flat transitions */
 .transition-luxury {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
 }
 
-/* Restrained image zoom */
+/* Subtle image scale (no bounce, no lift) */
 .card-image-zoom {
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -76,26 +77,21 @@ textarea:focus-visible {
   transform: scale(1.02);
 }
 
-/* Modal Backdrop */
-.modal-backdrop {
-  background-color: rgba(25, 28, 26, 0.7);
-}
-
 /* ========================================================================= */
-/* ADAPTIVE HEADER SYSTEM (Scrim-to-Solid)                                   */
+/* ADAPTIVE HEADER SYSTEM (Scrim-to-Solid Sandstone)                         */
 /* ========================================================================= */
 #mainHeader {
   background-color: transparent;
   border-bottom: 1px solid transparent;
   color: #FFFFFF;
-  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease, backdrop-filter 250ms ease;
+  transition: background-color 250ms ease, color 250ms ease, border-bottom-color 250ms ease, backdrop-filter 250ms ease;
 }
 
-/* Scrolled state (triggered after ~50-80px scroll) */
+/* Scrolled state (triggered after ~60px scroll) */
 #mainHeader.header-scrolled,
 #mainHeader.header-mobile-open {
-  background-color: rgba(250, 248, 245, 0.96);
-  border-bottom-color: rgba(25, 28, 26, 0.08);
+  background-color: rgba(247, 243, 236, 0.97);
+  border-bottom-color: var(--color-border);
   color: var(--color-text-primary);
   backdrop-filter: blur(8px);
 }
@@ -105,7 +101,7 @@ textarea:focus-visible {
   color: #FFFFFF;
 }
 #mainHeader:not(.header-scrolled):not(.header-mobile-open) .brand-sub {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.7);
 }
 #mainHeader:not(.header-scrolled):not(.header-mobile-open) .brand-mark {
   background-color: rgba(255, 255, 255, 0.12);
@@ -123,7 +119,7 @@ textarea:focus-visible {
 }
 #mainHeader.header-scrolled .brand-mark,
 #mainHeader.header-mobile-open .brand-mark {
-  background-color: var(--color-forest-deep);
+  background-color: var(--color-earth-dark);
   border: 1px solid transparent;
   color: var(--color-gold);
 }
@@ -168,12 +164,12 @@ textarea:focus-visible {
 #mainHeader.header-scrolled #headerCta,
 #mainHeader.header-mobile-open #headerCta {
   border: 1px solid transparent;
-  background-color: var(--color-forest-deep);
+  background-color: var(--color-earth-dark);
   color: #FFFFFF;
 }
 #mainHeader.header-scrolled #headerCta:hover,
 #mainHeader.header-mobile-open #headerCta:hover {
-  background-color: var(--color-forest-dark);
+  background-color: var(--color-earth-deep);
 }
 
 /* Mobile Menu Button per state */
@@ -202,10 +198,10 @@ textarea:focus-visible {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-surface-base);
+  background: var(--color-surface-warm);
 }
 ::-webkit-scrollbar-thumb {
-  background: #D8CEBD;
+  background: #D5CBBF;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {

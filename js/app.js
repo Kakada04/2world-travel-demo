@@ -1,16 +1,19 @@
 /**
  * 2World Travel Cambodia — Application Controller
- * Manages adaptive header, DOM rendering, Lucide icons, accessible modals, and instant filter updates.
+ * Mobile-First Page Architecture:
+ * - Native browser page flows (links navigate to proper pages, zero modal traps)
+ * - Adaptive Scrim-to-Solid Header
+ * - Lucide icons initialization
+ * - In-page tour catalog filter
  */
 
-import { TOURS_DATA, DESTINATIONS_DATA, COMPANY_INFO } from './data.js';
-import { renderTourCard, renderDestinationCard, renderInquiryModal } from './components.js';
+import { TOURS_DATA, DESTINATIONS_DATA } from './data.js';
+import { renderTourCard, renderDestinationCard } from './components.js';
 
 let isMobileMenuOpen = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
-  initModal();
   renderHomeContent();
   initHeroSearch();
   initScrollEffects();
@@ -34,10 +37,9 @@ function initNavigation() {
       menuBtn.setAttribute('aria-expanded', String(isMobileMenuOpen));
       mobileMenu.classList.toggle('hidden', !isMobileMenuOpen);
       
-      // When mobile nav opens, switch header surface to solid sandstone
+      // When mobile nav opens, switch header surface to solid warm sandstone
       header.classList.toggle('header-mobile-open', isMobileMenuOpen);
       
-      // Toggle menu / x icon
       const menuIcon = menuBtn.querySelector('i');
       if (menuIcon) {
         menuIcon.setAttribute('data-lucide', isMobileMenuOpen ? 'x' : 'menu');
@@ -75,84 +77,9 @@ function renderHomeContent() {
     destinationsContainer.innerHTML = DESTINATIONS_DATA.map((dest, idx) => renderDestinationCard(dest, idx)).join('');
   }
 
-  // Inject modal into DOM if not present
-  if (!document.getElementById('inquiryModal')) {
-    const modalWrapper = document.createElement('div');
-    modalWrapper.innerHTML = renderInquiryModal();
-    document.body.appendChild(modalWrapper.firstElementChild);
-  }
-
   if (window.lucide) {
     window.lucide.createIcons();
   }
-}
-
-/**
- * Modal System with Accessible Focus & Keyboard Support
- */
-function initModal() {
-  window.openInquiryModal = function(tourCode = '', tourTitle = '') {
-    const modal = document.getElementById('inquiryModal');
-    const form = document.getElementById('inquiryForm');
-    const success = document.getElementById('inquirySuccess');
-    const tourInput = document.getElementById('tourInterest');
-
-    if (!modal) return;
-
-    if (form) form.classList.remove('hidden');
-    if (success) success.classList.add('hidden');
-    if (tourInput) {
-      tourInput.value = tourCode ? `${tourTitle} (${tourCode})` : '';
-    }
-
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-
-    if (window.lucide) {
-      window.lucide.createIcons();
-    }
-
-    setTimeout(() => {
-      const firstInput = document.getElementById('clientName');
-      if (firstInput) firstInput.focus();
-    }, 50);
-  };
-
-  window.closeInquiryModal = function() {
-    const modal = document.getElementById('inquiryModal');
-    if (!modal) return;
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.body.style.overflow = '';
-  };
-
-  window.handleInquirySubmit = function(event) {
-    event.preventDefault();
-    const form = document.getElementById('inquiryForm');
-    const success = document.getElementById('inquirySuccess');
-
-    if (form && success) {
-      form.classList.add('hidden');
-      success.classList.remove('hidden');
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    }
-  };
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      window.closeInquiryModal();
-    }
-  });
-
-  document.addEventListener('click', (e) => {
-    const modal = document.getElementById('inquiryModal');
-    if (modal && e.target === modal) {
-      window.closeInquiryModal();
-    }
-  });
 }
 
 /**
@@ -208,16 +135,15 @@ function filterToursOnPage(dest, style, duration) {
     toursContainer.innerHTML = filtered.map(tour => renderTourCard(tour)).join('');
   } else {
     toursContainer.innerHTML = `
-      <div class="col-span-full p-10 text-center bg-white rounded-md border border-[rgba(25,28,26,0.08)]">
-        <p class="text-sm font-semibold text-[#191C1A] mb-1">No matching itineraries found</p>
-        <p class="text-xs text-[#5C645F] mb-4 max-w-sm mx-auto">We customize all routes. Inquire directly for a tailor-made schedule.</p>
-        <button 
-          type="button" 
-          onclick="window.resetToursFilter()" 
-          class="px-3.5 py-1.5 rounded-md text-xs font-semibold bg-[#C25E38] text-white hover:bg-[#A84F2E] transition-luxury"
+      <div class="col-span-full p-10 text-center bg-[#F7F3EC] rounded-md border border-[rgba(60,55,45,0.10)]">
+        <p class="text-sm font-semibold text-[#20231F] mb-1">No matching itineraries found</p>
+        <p class="text-xs text-[#5C645F] mb-4 max-w-sm mx-auto">We customize all routes. Reach out directly for a personalized itinerary.</p>
+        <a 
+          href="plan-trip.html" 
+          class="inline-block px-4 py-2 rounded-md text-xs font-semibold bg-[#B66E53] text-white hover:bg-[#A2583F] transition-luxury"
         >
-          Reset Filters
-        </button>
+          Plan Custom Journey
+        </a>
       </div>
     `;
   }
@@ -265,5 +191,5 @@ function initScrollEffects() {
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll(); // Initial check on load
+  handleScroll();
 }

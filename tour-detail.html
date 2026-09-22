@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>South Coast Explorer (7D6N) — 2World Travel Cambodia</title>
+  <meta name="description" content="7-Day South Coast Cambodia itinerary: Kampot pepper plantations, Kep seafood dining, and pristine white sand beaches of Koh Rong island.">
+
+  <!-- Tailwind CSS CDN with Nuanced Palette -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surface: {
+              base: '#FAF8F5',
+              warm: '#F7F3EC',
+              soft: '#F3EEE5',
+              sand: '#EFE8DC',
+            },
+            earth: {
+              dark: '#20382E',
+              muted: '#263F34',
+              deep: '#1A2D25',
+            },
+            text: {
+              primary: '#20231F',
+              muted: '#5C645F',
+              subtle: '#878E89',
+            },
+            terracotta: {
+              DEFAULT: '#B66E53',
+              hover: '#A2583F',
+            },
+            gold: {
+              DEFAULT: '#CFA365',
+              muted: '#E2D1B3',
+            },
+            borderCustom: 'rgba(60, 55, 45, 0.10)',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-surface-base text-text-primary font-sans antialiased min-h-screen flex flex-col pb-20 sm:pb-0">
+
+  <!-- ========================================================================= -->
+  <!-- 1. HEADER (Browser-Native Back Flow)                                      -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-surface-warm border-b border-[rgba(60,55,45,0.10)] transition-luxury">
+    <div class="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-[72px]">
+        
+        <a href="index.html" class="flex items-center space-x-3 group">
+          <div class="w-8 h-8 rounded-md bg-earth-dark text-gold flex items-center justify-center font-serif text-base font-bold">
+            2W
+          </div>
+          <div>
+            <div class="font-serif font-bold text-lg text-text-primary tracking-tight leading-none group-hover:text-terracotta transition-colors">
+              2World Travel
+            </div>
+            <div class="text-[10px] uppercase font-semibold tracking-wider text-text-muted mt-0.5">
+              Cambodia &bull; Est. 2010
+            </div>
+          </div>
+        </a>
+
+        <div class="flex items-center space-x-3">
+          <a 
+            href="index.html#tours" 
+            class="inline-flex items-center text-xs font-semibold text-text-muted hover:text-text-primary transition-colors py-2 px-3 rounded-md hover:bg-surface-base"
+          >
+            <i data-lucide="arrow-left" class="w-4 h-4 mr-1.5"></i>
+            <span>All Tours</span>
+          </a>
+          <a 
+            href="plan-trip.html?tour=2WT-SCE-7D6N" 
+            class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-md text-xs font-semibold bg-terracotta text-white hover:bg-terracotta-hover transition-luxury"
+          >
+            Inquire This Tour
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 2. TOUR HERO & OVERVIEW                                                   -->
+  <!-- ========================================================================= -->
+  <main class="flex-grow max-w-5xl mx-auto w-full px-5 py-8 sm:py-12">
+    
+    <!-- Breadcrumb & Metadata -->
+    <div class="mb-4 flex flex-wrap items-center gap-2 text-xs text-text-muted">
+      <a href="index.html" class="hover:text-text-primary">Home</a>
+      <span>&rsaquo;</span>
+      <a href="index.html#tours" class="hover:text-text-primary">Tours</a>
+      <span>&rsaquo;</span>
+      <span class="text-terracotta font-semibold">South Coast Explorer</span>
+    </div>
+
+    <!-- Title & Tour Badges -->
+    <div class="mb-8">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="px-2.5 py-0.5 rounded-sm text-xs font-semibold bg-[#20382E] text-stone-200">
+          South Coast & Islands
+        </span>
+        <span class="px-2.5 py-0.5 rounded-sm text-xs font-semibold bg-surface-warm text-text-muted border border-[rgba(60,55,45,0.12)]">
+          Code: 2WT-SCE-7D6N
+        </span>
+        <span class="px-2.5 py-0.5 rounded-sm text-xs font-semibold bg-surface-warm text-text-muted border border-[rgba(60,55,45,0.12)]">
+          7 Days / 6 Nights
+        </span>
+      </div>
+
+      <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary tracking-tight mb-4">
+        South Coast Explorer: Kampot, Kep & Koh Rong
+      </h1>
+
+      <p class="text-sm sm:text-base text-text-muted max-w-3xl leading-relaxed">
+        Discover southern Cambodia's colonial riverside charm in Kampot, the famous Kep crab market and seaside hills, followed by island relaxation on the pristine white sands of Koh Rong.
+      </p>
+    </div>
+
+    <!-- Lead Photography -->
+    <div class="rounded-md overflow-hidden border border-[rgba(60,55,45,0.12)] aspect-[16/9] mb-10 bg-stone-900">
+      <img 
+        src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1600&q=80" 
+        alt="Pristine white sand beach of Koh Rong island" 
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <!-- Tour Highlights Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-md bg-surface-warm border border-[rgba(60,55,45,0.10)] mb-12 text-left">
+      <div>
+        <span class="block text-[10px] uppercase font-bold text-text-muted mb-1">Duration</span>
+        <span class="text-xs sm:text-sm font-semibold text-text-primary">7 Days / 6 Nights</span>
+      </div>
+      <div>
+        <span class="block text-[10px] uppercase font-bold text-text-muted mb-1">Board Basis</span>
+        <span class="text-xs sm:text-sm font-semibold text-text-primary">B&B + Selected Meals</span>
+      </div>
+      <div>
+        <span class="block text-[10px] uppercase font-bold text-text-muted mb-1">Physical Pace</span>
+        <span class="text-xs sm:text-sm font-semibold text-text-primary">Relaxed & Scenic</span>
+      </div>
+      <div>
+        <span class="block text-[10px] uppercase font-bold text-text-muted mb-1">Transport</span>
+        <span class="text-xs sm:text-sm font-semibold text-text-primary">Chauffeur & Speedboat</span>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 3. DAY-BY-DAY ITINERARY TIMELINE                                          -->
+    <!-- ========================================================================= -->
+    <section class="mb-14">
+      <div class="mb-6">
+        <span class="text-[11px] uppercase tracking-[0.2em] font-semibold text-terracotta block mb-1">
+          Detailed Schedule
+        </span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-text-primary">
+          Day-by-Day Itinerary
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- Day 1 -->
+        <div class="p-5 rounded-md border border-[rgba(60,55,45,0.10)] bg-surface-base">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-terracotta">Day 01</span>
+            <span class="text-[11px] font-medium text-text-muted bg-surface-warm px-2 py-0.5 rounded-sm">Meals: Dinner {D}</span>
+          </div>
+          <h3 class="font-serif text-lg font-bold text-text-primary mb-2">Phnom Penh Arrival & Sunset River Promenade</h3>
+          <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
+            Welcome at Phnom Penh International Airport by your private chauffeur and guide. Transfer to your boutique hotel. In the late afternoon, embark on a private wooden boat cruise along the confluence of the Tonle Sap and Mekong rivers, enjoying sunset over the capital.
+          </p>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="p-5 rounded-md border border-[rgba(60,55,45,0.10)] bg-surface-base">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-terracotta">Day 02</span>
+            <span class="text-[11px] font-medium text-text-muted bg-surface-warm px-2 py-0.5 rounded-sm">Meals: {B, L}</span>
+          </div>
+          <h3 class="font-serif text-lg font-bold text-text-primary mb-2">Phnom Penh to Kampot via Organic Pepper Plantation</h3>
+          <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
+            Journey south by private air-conditioned vehicle through scenic rural villages. Visit an internationally certified organic Kampot pepper plantation to learn about the cultivation of black, red, and white pepper. Check in to your riverside lodge in Kampot.
+          </p>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="p-5 rounded-md border border-[rgba(60,55,45,0.10)] bg-surface-base">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-terracotta">Day 03</span>
+            <span class="text-[11px] font-medium text-text-muted bg-surface-warm px-2 py-0.5 rounded-sm">Meals: {B, L}</span>
+          </div>
+          <h3 class="font-serif text-lg font-bold text-text-primary mb-2">Bokor National Park Mountain Plateau</h3>
+          <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
+            Drive up the winding road into the cool mist of Bokor National Park. Explore the historic French hill station, the Old Catholic Church, and the cliff edge with panoramic views stretching across the Gulf of Thailand and Vietnam's Phu Quoc island.
+          </p>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="p-5 rounded-md border border-[rgba(60,55,45,0.10)] bg-surface-base">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-terracotta">Day 04</span>
+            <span class="text-[11px] font-medium text-text-muted bg-surface-warm px-2 py-0.5 rounded-sm">Meals: {B, L, D}</span>
+          </div>
+          <h3 class="font-serif text-lg font-bold text-text-primary mb-2">Kep Crab Market & Rabbit Island Excursion</h3>
+          <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
+            Short drive to the seaside town of Kep. Experience the lively morning crab market where local women haul baskets of fresh blue swimmer crabs directly from the sea. Board a local wooden boat to Koh Tonsay (Rabbit Island) for a peaceful beach day and freshly cooked seafood lunch.
+          </p>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="p-5 rounded-md border border-[rgba(60,55,45,0.10)] bg-surface-base">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-terracotta">Day 05</span>
+            <span class="text-[11px] font-medium text-text-muted bg-surface-warm px-2 py-0.5 rounded-sm">Meals: {B}</span>
+          </div>
+          <h3 class="font-serif text-lg font-bold text-text-primary mb-2">Speedboat to Koh Rong Tropical Island</h3>
+          <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
+            Depart Kep along the scenic coastal highway to Sihanoukville pier. Board a modern scheduled catamaran speedboat to Koh Rong. Arrive at your beachfront resort and spend the afternoon swimming in crystal clear turquoise water.
+          </p>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="p-5 rounded-md border border-[rgba(60,55,45,0.10)] bg-surface-base">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-terracotta">Day 06</span>
+            <span class="text-[11px] font-medium text-text-muted bg-surface-warm px-2 py-0.5 rounded-sm">Meals: {B}</span>
+          </div>
+          <h3 class="font-serif text-lg font-bold text-text-primary mb-2">Koh Rong Leisure & Snorkeling</h3>
+          <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
+            Full day at leisure on Koh Rong. Relax under coconut palms, kayak along secluded coves, or join a coral reef snorkeling excursion. Evening at leisure to enjoy beachfront dining.
+          </p>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="p-5 rounded-md border border-[rgba(60,55,45,0.10)] bg-surface-base">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-terracotta">Day 07</span>
+            <span class="text-[11px] font-medium text-text-muted bg-surface-warm px-2 py-0.5 rounded-sm">Meals: {B}</span>
+          </div>
+          <h3 class="font-serif text-lg font-bold text-text-primary mb-2">Catamaran Return & Express Highway to Phnom Penh</h3>
+          <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
+            Morning catamaran transfer back to mainland Sihanoukville. Meet your private vehicle for a smooth transfer along the expressway back to Phnom Penh airport or your onward departure hotel.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Inclusions & Exclusions -->
+    <section class="mb-14 p-6 rounded-md bg-surface-warm border border-[rgba(60,55,45,0.10)]">
+      <h2 class="font-serif text-xl font-bold text-text-primary mb-5">Inclusions & Practical Notes</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs text-text-muted">
+        <div>
+          <h3 class="font-bold text-text-primary uppercase tracking-wider text-[11px] mb-2 text-earth-dark">What is Included</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start"><i data-lucide="check" class="w-3.5 h-3.5 text-earth-dark mr-2 mt-0.5 flex-shrink-0"></i><span>Private air-conditioned vehicle with professional chauffeur throughout</span></li>
+            <li class="flex items-start"><i data-lucide="check" class="w-3.5 h-3.5 text-earth-dark mr-2 mt-0.5 flex-shrink-0"></i><span>Ministry-licensed English-speaking local guide on touring days</span></li>
+            <li class="flex items-start"><i data-lucide="check" class="w-3.5 h-3.5 text-earth-dark mr-2 mt-0.5 flex-shrink-0"></i><span>Round-trip scheduled catamaran tickets to Koh Rong</span></li>
+            <li class="flex items-start"><i data-lucide="check" class="w-3.5 h-3.5 text-earth-dark mr-2 mt-0.5 flex-shrink-0"></i><span>Boutique hotel & island resort accommodation (selected tier)</span></li>
+            <li class="flex items-start"><i data-lucide="check" class="w-3.5 h-3.5 text-earth-dark mr-2 mt-0.5 flex-shrink-0"></i><span>Entrance fees to Bokor National Park and pepper farm tasting</span></li>
+            <li class="flex items-start"><i data-lucide="check" class="w-3.5 h-3.5 text-earth-dark mr-2 mt-0.5 flex-shrink-0"></i><span>Daily chilled drinking water and fresh cold towels in vehicle</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-text-primary uppercase tracking-wider text-[11px] mb-2 text-terracotta">What is Excluded</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start"><i data-lucide="x" class="w-3.5 h-3.5 text-terracotta mr-2 mt-0.5 flex-shrink-0"></i><span>International flights and Cambodia entry visa fee</span></li>
+            <li class="flex items-start"><i data-lucide="x" class="w-3.5 h-3.5 text-terracotta mr-2 mt-0.5 flex-shrink-0"></i><span>Meals and beverages not specified in the day-by-day basis</span></li>
+            <li class="flex items-start"><i data-lucide="x" class="w-3.5 h-3.5 text-terracotta mr-2 mt-0.5 flex-shrink-0"></i><span>Personal travel insurance (can be arranged via Forte Insurance)</span></li>
+            <li class="flex items-start"><i data-lucide="x" class="w-3.5 h-3.5 text-terracotta mr-2 mt-0.5 flex-shrink-0"></i><span>Personal expenses and driver/guide gratuities</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Action Area -->
+    <div class="p-8 rounded-md bg-earth-dark text-white flex flex-col sm:flex-row items-center justify-between gap-6 mb-12">
+      <div>
+        <h3 class="font-serif text-2xl font-bold">Ready to Customize This Itinerary?</h3>
+        <p class="text-xs sm:text-sm text-stone-300 mt-1">Our coordinators can adapt dates, hotel tiers, and pacing to your preferences.</p>
+      </div>
+      <a 
+        href="plan-trip.html?tour=2WT-SCE-7D6N" 
+        class="w-full sm:w-auto px-6 py-3.5 rounded-md text-xs sm:text-sm font-semibold bg-terracotta hover:bg-terracotta-hover text-white transition-luxury text-center inline-flex items-center justify-center space-x-2 flex-shrink-0"
+      >
+        <span>Plan Your Trip on This Route</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Mobile Sticky Bar -->
+  <div class="sm:hidden fixed bottom-0 inset-x-0 bg-surface-warm border-t border-[rgba(60,55,45,0.12)] p-3 z-30 flex items-center justify-between">
+    <div>
+      <span class="block text-[10px] uppercase font-bold text-text-muted">7D / 6N Tour</span>
+      <span class="text-xs font-bold text-text-primary">Tailored Quote</span>
+    </div>
+    <a 
+      href="plan-trip.html?tour=2WT-SCE-7D6N" 
+      class="px-5 py-2.5 rounded-md text-xs font-semibold bg-terracotta text-white"
+    >
+      Inquire Now
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-earth-deep text-stone-400 text-xs pt-12 pb-8 border-t border-[rgba(60,55,45,0.15)]">
+    <div class="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="font-serif font-bold text-stone-200">2World Travel (Cambodia) Ltd</p>
+        <p class="text-[11px] text-stone-400 mt-0.5">Ministry of Tourism Lic. 098/11 &bull; Ministry of Commerce Lic. So. 0021KH/2010</p>
+      </div>
+      <div class="text-[11px] text-stone-400">
+        &copy; 2010–2026 2World Travel Cambodia. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

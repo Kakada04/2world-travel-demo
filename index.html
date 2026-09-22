@@ -6,7 +6,7 @@
   <title>2World Travel Cambodia — Inbound Destination Management & Tailored Journeys</title>
   <meta name="description" content="Accredited Cambodia inbound tour operator established in 2010. Multi-day cultural tours, inter-city transport, multilingual guides, visa services, and corporate MICE logistics.">
 
-  <!-- Tailwind CSS CDN with Adapted Gemini Visual Design Tokens -->
+  <!-- Tailwind CSS CDN with Nuanced Organic Palette -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -15,28 +15,29 @@
           colors: {
             surface: {
               base: '#FAF8F5',
-              raised: '#FFFFFF',
-              warm: '#F4EFE7',
+              warm: '#F7F3EC',
+              soft: '#F3EEE5',
+              sand: '#EFE8DC',
             },
-            forest: {
-              deep: '#1B3B2B',
-              dark: '#142E21',
-              muted: '#244C38',
+            earth: {
+              dark: '#20382E',
+              muted: '#263F34',
+              deep: '#1A2D25',
             },
             text: {
-              primary: '#191C1A',
+              primary: '#20231F',
               muted: '#5C645F',
-              subtle: '#8A928D',
+              subtle: '#878E89',
             },
             terracotta: {
-              DEFAULT: '#C25E38',
-              hover: '#A84F2E',
+              DEFAULT: '#B66E53',
+              hover: '#A2583F',
             },
             gold: {
-              DEFAULT: '#D4A359',
-              muted: '#EAD8B8',
+              DEFAULT: '#CFA365',
+              muted: '#E2D1B3',
             },
-            borderCustom: 'rgba(25, 28, 26, 0.08)',
+            borderCustom: 'rgba(60, 55, 45, 0.10)',
           },
           fontFamily: {
             serif: ['"Playfair Display"', 'Georgia', 'serif'],
@@ -50,16 +51,16 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Custom Flat Luxury Stylesheet -->
+  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-surface-base text-text-primary font-sans antialiased min-h-screen flex flex-col">
 
   <!-- ========================================================================= -->
-  <!-- 1. ADAPTIVE HEADER (Scrim-to-Solid, Seamless Over Hero)                   -->
+  <!-- 1. ADAPTIVE HEADER (Scrim-to-Solid Sandstone, Positioned Over Hero)       -->
   <!-- ========================================================================= -->
   <header id="mainHeader" class="fixed top-0 inset-x-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 sm:h-[72px] lg:h-20">
         
         <!-- Brand Identity -->
@@ -77,7 +78,7 @@
           </div>
         </a>
 
-        <!-- Desktop Navigation Links (Clean, 14-15px, font-weight 500) -->
+        <!-- Desktop Navigation Links (Spacious, 14-15px font-weight 500) -->
         <nav class="hidden lg:flex items-center space-x-7 text-[14px] font-medium" aria-label="Primary Navigation">
           <a href="index.html" class="nav-link active font-semibold border-b-2 pb-1 transition-luxury">Home</a>
           <a href="#tours" class="nav-link transition-luxury">Tours</a>
@@ -85,30 +86,28 @@
           <a href="#why-us" class="nav-link transition-luxury">Why 2World</a>
           <a href="#services" class="nav-link transition-luxury">Services</a>
           <a href="#reviews" class="nav-link transition-luxury">Reviews</a>
-          <a href="#contact" class="nav-link transition-luxury">Contact</a>
+          <a href="plan-trip.html" class="nav-link transition-luxury">Contact</a>
         </nav>
 
-        <!-- Right CTA: Single Clear Action -->
+        <!-- Right Action: Native Page Link (NO MODALS) -->
         <div class="hidden sm:flex items-center space-x-3">
-          <button 
+          <a 
             id="headerCta"
-            type="button" 
-            onclick="window.openInquiryModal()" 
-            class="px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-luxury"
+            href="plan-trip.html" 
+            class="px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-luxury inline-flex items-center"
           >
             Plan Your Trip
-          </button>
+          </a>
         </div>
 
         <!-- Mobile Menu Trigger -->
         <div class="flex lg:hidden items-center space-x-2">
-          <button 
-            type="button" 
-            onclick="window.openInquiryModal()" 
+          <a 
+            href="plan-trip.html" 
             class="sm:hidden px-3 py-1.5 rounded-md text-xs font-semibold bg-terracotta text-white"
           >
             Inquire
-          </button>
+          </a>
           <button 
             id="mobileMenuBtn" 
             type="button" 
@@ -124,30 +123,29 @@
     </div>
 
     <!-- Mobile Drawer Menu (Solid Sandstone Panel with Large Touch Targets) -->
-    <div id="mobileMenu" class="hidden lg:hidden border-t border-[rgba(25,28,26,0.08)] bg-surface-base px-4 pt-3 pb-6 space-y-1">
-      <a href="index.html" class="block py-3 px-3.5 rounded-md text-base font-semibold text-terracotta bg-surface-warm">Home</a>
-      <a href="#tours" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-warm border-b border-[rgba(25,28,26,0.04)]">Tours Catalog</a>
-      <a href="#destinations" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-warm border-b border-[rgba(25,28,26,0.04)]">Destinations</a>
-      <a href="#why-us" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-warm border-b border-[rgba(25,28,26,0.04)]">Why 2World Travel</a>
-      <a href="#services" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-warm border-b border-[rgba(25,28,26,0.04)]">Travel Services</a>
-      <a href="#reviews" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-warm border-b border-[rgba(25,28,26,0.04)]">Client Reviews</a>
-      <a href="#contact" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-warm">Contact & Operations</a>
-      <div class="pt-3 border-t border-[rgba(25,28,26,0.08)]">
-        <button 
-          type="button" 
-          onclick="window.openInquiryModal()" 
-          class="w-full py-3.5 rounded-md text-sm font-semibold bg-forest-deep text-white text-center hover:bg-forest-dark transition-colors"
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-[rgba(60,55,45,0.10)] bg-surface-warm px-5 pt-3 pb-6 space-y-1">
+      <a href="index.html" class="block py-3 px-3.5 rounded-md text-base font-semibold text-terracotta bg-surface-soft">Home</a>
+      <a href="#tours" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-soft border-b border-[rgba(60,55,45,0.05)]">Tours Catalog</a>
+      <a href="#destinations" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-soft border-b border-[rgba(60,55,45,0.05)]">Destinations</a>
+      <a href="#why-us" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-soft border-b border-[rgba(60,55,45,0.05)]">Why 2World Travel</a>
+      <a href="#services" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-soft border-b border-[rgba(60,55,45,0.05)]">Travel Services</a>
+      <a href="#reviews" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-soft border-b border-[rgba(60,55,45,0.05)]">Client Reviews</a>
+      <a href="plan-trip.html" class="block py-3 px-3.5 rounded-md text-base font-medium text-text-primary hover:bg-surface-soft">Contact & Inquiries</a>
+      <div class="pt-3 border-t border-[rgba(60,55,45,0.10)]">
+        <a 
+          href="plan-trip.html" 
+          class="block w-full py-3.5 rounded-md text-sm font-semibold bg-earth-dark text-white text-center hover:bg-earth-deep transition-colors"
         >
           Plan Your Trip
-        </button>
+        </a>
       </div>
     </div>
   </header>
 
   <!-- ========================================================================= -->
-  <!-- 2. HERO SECTION (80–90vh Desktop, Continuous Composition Behind Nav)       -->
+  <!-- 2. HERO SECTION (Immersive Cambodia Photography, Travel-First Feel)       -->
   <!-- ========================================================================= -->
-  <section class="relative bg-forest-deep text-white overflow-hidden min-h-[85vh] lg:min-h-[88vh] flex flex-col justify-between" aria-labelledby="heroHeading">
+  <section class="relative bg-earth-deep text-white overflow-hidden min-h-[85vh] lg:min-h-[88vh] flex flex-col justify-between" aria-labelledby="heroHeading">
     
     <!-- Hero Background Image (Cambodia-focused photography) -->
     <div class="absolute inset-0 z-0">
@@ -157,14 +155,14 @@
         class="w-full h-full object-cover object-center"
       />
       <!-- Top Scrim for Guaranteed Nav Readability -->
-      <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/75 via-black/35 to-transparent pointer-events-none z-10"></div>
+      <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#1A2D25]/85 via-[#1A2D25]/35 to-transparent pointer-events-none z-10"></div>
       <!-- Left-to-Right Natural Reading Gradient Scrim -->
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0A140F]/85 via-[#0A140F]/45 to-transparent pointer-events-none z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#1A2D25]/90 via-[#1A2D25]/45 to-transparent pointer-events-none z-10"></div>
     </div>
 
     <!-- Hero Content (Left-Aligned Editorial Composition, max-width ~500px) -->
-    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-36 pb-12 flex-grow flex flex-col justify-center">
-      <div class="max-w-[520px]">
+    <div class="relative z-20 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-36 pb-12 flex-grow flex flex-col justify-center">
+      <div class="max-w-[500px]">
         
         <!-- Small Eyebrow -->
         <div class="text-[11px] uppercase tracking-[0.2em] font-semibold text-gold mb-3 flex items-center">
@@ -172,7 +170,7 @@
           Cambodia, Designed Differently
         </div>
 
-        <!-- Main Headline (48–56px Desktop, 40–46px Tablet, 32–38px Mobile, Line-Height ~1.15) -->
+        <!-- Main Headline (34-38px Mobile, 48-56px Desktop) -->
         <h1 id="heroHeading" class="font-serif text-[34px] sm:text-[44px] lg:text-[52px] font-bold tracking-tight text-white leading-[1.15] mb-4">
           Authentic journeys through Cambodia.
         </h1>
@@ -182,7 +180,7 @@
           Private tours, cultural journeys and local expertise designed around the way you want to travel.
         </p>
 
-        <!-- Two Actions Maximum -->
+        <!-- Two Actions Maximum (Browser-Native Links) -->
         <div class="flex flex-wrap items-center gap-3.5">
           <a 
             href="#tours" 
@@ -191,22 +189,21 @@
             <span>Explore Tours</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
-          <button 
-            type="button" 
-            onclick="window.openInquiryModal()" 
+          <a 
+            href="plan-trip.html" 
             class="px-5 py-3 rounded-md text-xs sm:text-sm font-medium border border-white/40 text-white hover:bg-white/10 transition-luxury"
           >
             Plan Your Trip
-          </button>
+          </a>
         </div>
 
       </div>
     </div>
 
-    <!-- Flat Architectural Discovery Filter (Single Horizontal Row Desktop, Vertical Separators) -->
-    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 w-full">
-      <div class="bg-surface-base border border-[rgba(25,28,26,0.12)] rounded-md p-0 shadow-none text-text-primary">
-        <form id="heroSearchForm" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-[rgba(25,28,26,0.08)]">
+    <!-- Flat Architectural Discovery Filter (Integrated Warm Surface, Not Floating) -->
+    <div class="relative z-20 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-8 sm:pb-10 w-full">
+      <div class="bg-surface-base border border-[rgba(60,55,45,0.12)] rounded-md p-0 shadow-none text-text-primary">
+        <form id="heroSearchForm" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-[rgba(60,55,45,0.10)]">
           
           <!-- Field 1: Destination -->
           <div class="p-3.5 sm:p-4">
@@ -297,14 +294,14 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 3. COMPACT TRUST / PROOF ROW (Warm Canvas Surface #F4EFE7)                -->
+  <!-- 3. COMPACT TRUST / PROOF ROW (Warm Sandstone Surface #F7F3EC)             -->
   <!-- ========================================================================= -->
-  <section class="bg-surface-warm border-b border-[rgba(25,28,26,0.08)] py-7" aria-label="Key Credibility Metrics">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="bg-surface-warm border-b border-[rgba(60,55,45,0.10)] py-7" aria-label="Key Credibility Metrics">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-left">
         
         <div class="flex items-center space-x-3">
-          <div class="w-8 h-8 rounded-md bg-white border border-[rgba(25,28,26,0.08)] text-forest-deep flex items-center justify-center flex-shrink-0">
+          <div class="w-8 h-8 rounded-md bg-surface-soft border border-[rgba(60,55,45,0.10)] text-earth-dark flex items-center justify-center flex-shrink-0">
             <i data-lucide="landmark" class="w-4 h-4"></i>
           </div>
           <div>
@@ -314,7 +311,7 @@
         </div>
 
         <div class="flex items-center space-x-3">
-          <div class="w-8 h-8 rounded-md bg-white border border-[rgba(25,28,26,0.08)] text-forest-deep flex items-center justify-center flex-shrink-0">
+          <div class="w-8 h-8 rounded-md bg-surface-soft border border-[rgba(60,55,45,0.10)] text-earth-dark flex items-center justify-center flex-shrink-0">
             <i data-lucide="shield-check" class="w-4 h-4"></i>
           </div>
           <div>
@@ -324,7 +321,7 @@
         </div>
 
         <div class="flex items-center space-x-3">
-          <div class="w-8 h-8 rounded-md bg-white border border-[rgba(25,28,26,0.08)] text-forest-deep flex items-center justify-center flex-shrink-0">
+          <div class="w-8 h-8 rounded-md bg-surface-soft border border-[rgba(60,55,45,0.10)] text-earth-dark flex items-center justify-center flex-shrink-0">
             <i data-lucide="globe" class="w-4 h-4"></i>
           </div>
           <div>
@@ -334,7 +331,7 @@
         </div>
 
         <div class="flex items-center space-x-3">
-          <div class="w-8 h-8 rounded-md bg-white border border-[rgba(25,28,26,0.08)] text-forest-deep flex items-center justify-center flex-shrink-0">
+          <div class="w-8 h-8 rounded-md bg-surface-soft border border-[rgba(60,55,45,0.10)] text-earth-dark flex items-center justify-center flex-shrink-0">
             <i data-lucide="headphones" class="w-4 h-4"></i>
           </div>
           <div>
@@ -348,18 +345,18 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 4. FEATURED TOURS (80–96px Desktop Rhythm, Structured Card Grid)           -->
+  <!-- 4. FEATURED TOURS (Soft Sandstone Base #FAF8F5, Structured 16:10 Grid)    -->
   <!-- ========================================================================= -->
-  <section id="tours" class="py-20 lg:py-24 bg-surface-base" aria-labelledby="toursHeading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="tours" class="py-16 sm:py-20 lg:py-24 bg-surface-base" aria-labelledby="toursHeading">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       
-      <!-- Section Header (Clear Hierarchy: Eyebrow, 32-36px Heading, 1 Sentence) -->
+      <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
         <div>
           <span class="text-[11px] uppercase tracking-wider font-semibold text-terracotta mb-1.5 block">
             Curated Itineraries
           </span>
-          <h2 id="toursHeading" class="font-serif text-[30px] sm:text-[36px] font-bold text-text-primary tracking-tight">
+          <h2 id="toursHeading" class="font-serif text-[28px] sm:text-[36px] font-bold text-text-primary tracking-tight">
             Featured Cambodia Journeys
           </h2>
           <p class="mt-1 text-xs sm:text-sm text-text-muted">
@@ -386,21 +383,21 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 5. CAMBODIAN DESTINATIONS (Editorial Image Mosaic, Surface Raised #FFFFFF)-->
+  <!-- 5. CAMBODIAN DESTINATIONS (Editorial Image Mosaic, Soft Surface #F3EEE5)  -->
   <!-- ========================================================================= -->
-  <section id="destinations" class="py-20 lg:py-24 bg-surface-raised border-t border-[rgba(25,28,26,0.08)]" aria-labelledby="destHeading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="destinations" class="py-16 sm:py-20 lg:py-24 bg-surface-soft border-t border-[rgba(60,55,45,0.10)]" aria-labelledby="destHeading">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       
       <!-- Header -->
       <div class="max-w-2xl mb-10">
         <span class="text-[11px] uppercase tracking-wider font-semibold text-terracotta mb-1.5 block">
           Provincial Coverage
         </span>
-        <h2 id="destHeading" class="font-serif text-[30px] sm:text-[36px] font-bold text-text-primary tracking-tight">
+        <h2 id="destHeading" class="font-serif text-[28px] sm:text-[36px] font-bold text-text-primary tracking-tight">
           Explore by Region
         </h2>
         <p class="mt-1 text-xs sm:text-sm text-text-muted">
-          From ancient temples to wild eastern highlands and southern islands.
+          From ancient stone temples to wild eastern highlands and southern islands.
         </p>
       </div>
 
@@ -413,63 +410,55 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 6. WHY TRAVEL WITH 2WORLD (Horizontal Benefits, Surface Warm #F4EFE7)     -->
+  <!-- 6. WHY TRAVEL WITH 2WORLD (OPEN HORIZONTAL BENEFITS, NO BOXED CARD STACK) -->
   <!-- ========================================================================= -->
-  <section id="why-us" class="py-20 lg:py-24 bg-surface-warm border-t border-[rgba(25,28,26,0.08)]" aria-labelledby="whyHeading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="why-us" class="py-16 sm:py-20 lg:py-24 bg-surface-warm border-t border-[rgba(60,55,45,0.10)]" aria-labelledby="whyHeading">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       
-      <div class="max-w-2xl mb-10">
+      <div class="max-w-2xl mb-12">
         <span class="text-[11px] uppercase tracking-wider font-semibold text-terracotta mb-1.5 block">
           Operational Standards
         </span>
-        <h2 id="whyHeading" class="font-serif text-[30px] sm:text-[36px] font-bold text-text-primary tracking-tight">
+        <h2 id="whyHeading" class="font-serif text-[28px] sm:text-[36px] font-bold text-text-primary tracking-tight">
           Why Travel With 2World
         </h2>
         <p class="mt-1 text-xs sm:text-sm text-text-muted">
-          Direct local relationships, verified licensing, and genuine expertise.
+          Direct local relationships, verified licensing, and genuine Cambodian expertise.
         </p>
       </div>
 
-      <!-- Simple Horizontal Benefits Layout -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Open Horizontal Layout (Icon + Title + Description + Thin Separators, NO heavy cards!) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:divide-x lg:divide-[rgba(60,55,45,0.10)]">
         
-        <div class="bg-surface-raised p-5 rounded-md border border-[rgba(25,28,26,0.08)]">
-          <div class="w-8 h-8 rounded-md bg-surface-base border border-[rgba(25,28,26,0.08)] text-forest-deep flex items-center justify-center mb-3">
-            <i data-lucide="landmark" class="w-4 h-4"></i>
-          </div>
-          <h3 class="font-bold text-sm text-text-primary mb-1">Local DMC Since 2010</h3>
+        <div class="lg:pr-6">
+          <i data-lucide="landmark" class="w-6 h-6 text-earth-dark mb-3"></i>
+          <h3 class="font-serif font-bold text-base text-text-primary mb-1.5">Local DMC Since 2010</h3>
           <p class="text-xs text-text-muted leading-relaxed">
-            Registered Cambodian tour operator with offices in Phnom Penh and Siem Reap.
+            Registered Cambodian tour operator with full-time operations in Phnom Penh and Siem Reap.
           </p>
         </div>
 
-        <div class="bg-surface-raised p-5 rounded-md border border-[rgba(25,28,26,0.08)]">
-          <div class="w-8 h-8 rounded-md bg-surface-base border border-[rgba(25,28,26,0.08)] text-forest-deep flex items-center justify-center mb-3">
-            <i data-lucide="languages" class="w-4 h-4"></i>
-          </div>
-          <h3 class="font-bold text-sm text-text-primary mb-1">Multilingual Guides</h3>
+        <div class="lg:px-6">
+          <i data-lucide="languages" class="w-6 h-6 text-earth-dark mb-3"></i>
+          <h3 class="font-serif font-bold text-base text-text-primary mb-1.5">Multilingual Guides</h3>
           <p class="text-xs text-text-muted leading-relaxed">
-            Ministry-licensed guides in English, French, German, Spanish, and Japanese.
+            Ministry-licensed guides in English, French, German, Spanish, Japanese, and Chinese.
           </p>
         </div>
 
-        <div class="bg-surface-raised p-5 rounded-md border border-[rgba(25,28,26,0.08)]">
-          <div class="w-8 h-8 rounded-md bg-surface-base border border-[rgba(25,28,26,0.08)] text-forest-deep flex items-center justify-center mb-3">
-            <i data-lucide="bus" class="w-4 h-4"></i>
-          </div>
-          <h3 class="font-bold text-sm text-text-primary mb-1">Verified Transport</h3>
+        <div class="lg:px-6">
+          <i data-lucide="bus" class="w-6 h-6 text-earth-dark mb-3"></i>
+          <h3 class="font-serif font-bold text-base text-text-primary mb-1.5">Verified Transport</h3>
           <p class="text-xs text-text-muted leading-relaxed">
-            Ticketing partner for Giant Ibis, Mekong Express, and private vehicles.
+            Ticketing partner for Giant Ibis, Mekong Express, and air-conditioned private fleet.
           </p>
         </div>
 
-        <div class="bg-surface-raised p-5 rounded-md border border-[rgba(25,28,26,0.08)]">
-          <div class="w-8 h-8 rounded-md bg-surface-base border border-[rgba(25,28,26,0.08)] text-forest-deep flex items-center justify-center mb-3">
-            <i data-lucide="shield-check" class="w-4 h-4"></i>
-          </div>
-          <h3 class="font-bold text-sm text-text-primary mb-1">Clear Quotations</h3>
+        <div class="lg:pl-6">
+          <i data-lucide="shield-check" class="w-6 h-6 text-earth-dark mb-3"></i>
+          <h3 class="font-serif font-bold text-base text-text-primary mb-1.5">Clear Quotations</h3>
           <p class="text-xs text-text-muted leading-relaxed">
-            Itemized proposals detailing hotel tiers, transport, and zero hidden fees.
+            Itemized proposals detailing hotel tiers, vehicle types, entrance passes, and zero hidden fees.
           </p>
         </div>
 
@@ -479,16 +468,16 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 7. TRAVEL SERVICES (Minimal Icon + Title Grid With Thin Borders)          -->
+  <!-- 7. TRAVEL SERVICES (Minimal Grid with Thin Borders, Surface Base #FAF8F5) -->
   <!-- ========================================================================= -->
-  <section id="services" class="py-20 lg:py-24 bg-surface-base border-t border-[rgba(25,28,26,0.08)]" aria-labelledby="servicesHeading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="services" class="py-16 sm:py-20 lg:py-24 bg-surface-base border-t border-[rgba(60,55,45,0.10)]" aria-labelledby="servicesHeading">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       
       <div class="max-w-2xl mb-10">
         <span class="text-[11px] uppercase tracking-wider font-semibold text-terracotta mb-1.5 block">
-          End-to-End Services
+          End-to-End Capabilities
         </span>
-        <h2 id="servicesHeading" class="font-serif text-[30px] sm:text-[36px] font-bold text-text-primary tracking-tight">
+        <h2 id="servicesHeading" class="font-serif text-[28px] sm:text-[36px] font-bold text-text-primary tracking-tight">
           Comprehensive Travel Services
         </h2>
         <p class="mt-1 text-xs sm:text-sm text-text-muted">
@@ -497,10 +486,10 @@
       </div>
 
       <!-- Minimal Grid with Hairline Borders -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-[rgba(25,28,26,0.08)] rounded-md overflow-hidden bg-surface-raised">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-[rgba(60,55,45,0.10)] rounded-md overflow-hidden bg-surface-warm">
         
         <!-- Service 1: Tour Packages -->
-        <div class="p-6 border-b sm:border-b-0 sm:border-r border-[rgba(25,28,26,0.08)] hover:bg-surface-base transition-colors">
+        <div class="p-6 border-b sm:border-b-0 sm:border-r border-[rgba(60,55,45,0.10)] hover:bg-surface-base transition-colors">
           <i data-lucide="compass" class="w-5 h-5 text-terracotta mb-2"></i>
           <h3 class="font-bold text-sm text-text-primary mb-1">Tour Packages</h3>
           <p class="text-xs text-text-muted mb-3">Curated private journeys across Cambodia.</p>
@@ -511,47 +500,47 @@
         </div>
 
         <!-- Service 2: Transportation -->
-        <div class="p-6 border-b sm:border-b-0 lg:border-r border-[rgba(25,28,26,0.08)] hover:bg-surface-base transition-colors">
+        <div class="p-6 border-b sm:border-b-0 lg:border-r border-[rgba(60,55,45,0.10)] hover:bg-surface-base transition-colors">
           <i data-lucide="bus" class="w-5 h-5 text-terracotta mb-2"></i>
           <h3 class="font-bold text-sm text-text-primary mb-1">Transportation</h3>
           <p class="text-xs text-text-muted mb-3">Private chauffeured fleet and inter-city bus ticketing.</p>
-          <button type="button" onclick="window.openInquiryModal('TRANS-TICKET', 'Transport Booking')" class="inline-flex items-center text-xs font-semibold text-terracotta hover:underline">
+          <a href="plan-trip.html?service=transport" class="inline-flex items-center text-xs font-semibold text-terracotta hover:underline">
             <span>Inquire Transport</span>
             <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i>
-          </button>
+          </a>
         </div>
 
         <!-- Service 3: Private Guides -->
-        <div class="p-6 border-b lg:border-b-0 border-[rgba(25,28,26,0.08)] hover:bg-surface-base transition-colors">
+        <div class="p-6 border-b lg:border-b-0 border-[rgba(60,55,45,0.10)] hover:bg-surface-base transition-colors">
           <i data-lucide="languages" class="w-5 h-5 text-terracotta mb-2"></i>
           <h3 class="font-bold text-sm text-text-primary mb-1">Private Guides</h3>
           <p class="text-xs text-text-muted mb-3">Certified multilingual guide hire across 8 languages.</p>
-          <button type="button" onclick="window.openInquiryModal('GUIDE-DESK', 'Guide Services')" class="inline-flex items-center text-xs font-semibold text-terracotta hover:underline">
+          <a href="plan-trip.html?service=guides" class="inline-flex items-center text-xs font-semibold text-terracotta hover:underline">
             <span>Guide Tariffs</span>
             <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i>
-          </button>
+          </a>
         </div>
 
         <!-- Service 4: Visa Assistance -->
-        <div class="p-6 border-b sm:border-b-0 sm:border-r border-[rgba(25,28,26,0.08)] hover:bg-surface-base transition-colors">
+        <div class="p-6 border-b sm:border-b-0 sm:border-r border-[rgba(60,55,45,0.10)] hover:bg-surface-base transition-colors">
           <i data-lucide="file-text" class="w-5 h-5 text-terracotta mb-2"></i>
           <h3 class="font-bold text-sm text-text-primary mb-1">Visa Assistance</h3>
           <p class="text-xs text-text-muted mb-3">Extensions for T & E visas and official advisory.</p>
-          <button type="button" onclick="window.openInquiryModal('VISA-DESK', 'Visa Services')" class="inline-flex items-center text-xs font-semibold text-terracotta hover:underline">
+          <a href="plan-trip.html?service=visa" class="inline-flex items-center text-xs font-semibold text-terracotta hover:underline">
             <span>Visa Support</span>
             <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i>
-          </button>
+          </a>
         </div>
 
         <!-- Service 5: MICE & Corporate -->
-        <div class="p-6 border-b sm:border-b-0 lg:border-r border-[rgba(25,28,26,0.08)] hover:bg-surface-base transition-colors">
+        <div class="p-6 border-b sm:border-b-0 lg:border-r border-[rgba(60,55,45,0.10)] hover:bg-surface-base transition-colors">
           <i data-lucide="briefcase" class="w-5 h-5 text-terracotta mb-2"></i>
           <h3 class="font-bold text-sm text-text-primary mb-1">MICE & Events</h3>
           <p class="text-xs text-text-muted mb-3">Conference venues, equipment, and retreat logistics.</p>
-          <button type="button" onclick="window.openInquiryModal('MICE-DESK', 'MICE Proposal')" class="inline-flex items-center text-xs font-semibold text-terracotta hover:underline">
+          <a href="plan-trip.html?service=mice" class="inline-flex items-center text-xs font-semibold text-terracotta hover:underline">
             <span>Event Quotes</span>
             <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i>
-          </button>
+          </a>
         </div>
 
         <!-- Service 6: Travel Insurance -->
@@ -559,10 +548,10 @@
           <i data-lucide="shield" class="w-5 h-5 text-terracotta mb-2"></i>
           <h3 class="font-bold text-sm text-text-primary mb-1">Travel Insurance</h3>
           <p class="text-xs text-text-muted mb-3">Policy brokerage underwritten by Forte Insurance.</p>
-          <button type="button" onclick="window.openInquiryModal('INS-DESK', 'Travel Insurance')" class="inline-flex items-center text-xs font-semibold text-terracotta hover:underline">
+          <a href="plan-trip.html?service=insurance" class="inline-flex items-center text-xs font-semibold text-terracotta hover:underline">
             <span>Insurance Details</span>
             <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i>
-          </button>
+          </a>
         </div>
 
       </div>
@@ -571,20 +560,20 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 8. FEATURED JOURNEY (Large Asymmetric Editorial Feature, #1B3B2B)         -->
+  <!-- 8. FEATURED JOURNEY (Muted Dark Earth Section #20382E, 60% Image Spread)  -->
   <!-- ========================================================================= -->
-  <section class="py-20 lg:py-24 bg-forest-deep text-white overflow-hidden border-t border-forest-dark" aria-labelledby="spotlightHeading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-16 sm:py-20 lg:py-24 bg-earth-dark text-white overflow-hidden border-t border-earth-deep" aria-labelledby="spotlightHeading">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
-        <!-- Left Column -->
-        <div class="lg:col-span-6 space-y-5">
-          <div class="inline-flex items-center px-2 py-0.5 rounded-sm text-[11px] font-semibold bg-terracotta/20 text-terracotta-hover border border-terracotta/40">
+        <!-- Left Editorial Narrative -->
+        <div class="lg:col-span-5 space-y-5">
+          <div class="inline-flex items-center px-2 py-0.5 rounded-sm text-[11px] font-semibold bg-terracotta/20 text-stone-200 border border-terracotta/40">
             Featured 7-Day Journey &bull; 2WT-SCE-7D6N
           </div>
           
-          <h2 id="spotlightHeading" class="font-serif text-[30px] sm:text-[38px] font-bold text-white tracking-tight leading-tight">
+          <h2 id="spotlightHeading" class="font-serif text-[28px] sm:text-[38px] font-bold text-white tracking-tight leading-tight">
             South Coast Explorer
           </h2>
           
@@ -593,39 +582,38 @@
           </p>
 
           <div class="grid grid-cols-2 gap-4 pt-1">
-            <div class="p-3.5 rounded-md bg-forest-dark border border-forest-muted">
+            <div class="p-3.5 rounded-md bg-earth-deep border border-earth-muted">
               <span class="block text-[10px] uppercase text-gold font-bold mb-0.5">Route</span>
               <span class="text-xs text-stone-200">Phnom Penh &rarr; Kampot &rarr; Koh Rong</span>
             </div>
-            <div class="p-3.5 rounded-md bg-forest-dark border border-forest-muted">
+            <div class="p-3.5 rounded-md bg-earth-deep border border-earth-muted">
               <span class="block text-[10px] uppercase text-gold font-bold mb-0.5">Transport</span>
               <span class="text-xs text-stone-200">Private Chauffeur & Speedboat</span>
             </div>
           </div>
 
           <div class="pt-2 flex flex-wrap items-center gap-3">
-            <button 
-              type="button" 
-              onclick="window.openInquiryModal('2WT-SCE-7D6N', 'South Coast Explorer 7D6N')" 
-              class="px-4 py-2.5 rounded-md text-xs sm:text-sm font-semibold bg-terracotta text-white hover:bg-terracotta-hover transition-luxury inline-flex items-center"
-            >
-              <span>Inquire Route</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1.5"></i>
-            </button>
             <a 
               href="tour-detail.html?code=2WT-SCE-7D6N" 
-              class="px-4 py-2.5 rounded-md text-xs sm:text-sm font-medium text-stone-300 hover:text-white bg-forest-dark border border-forest-muted transition-colors"
+              class="px-5 py-2.5 rounded-md text-xs sm:text-sm font-semibold bg-terracotta text-white hover:bg-terracotta-hover transition-luxury inline-flex items-center space-x-1.5"
             >
-              View Itinerary
+              <span>View Full Itinerary</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <a 
+              href="plan-trip.html?tour=2WT-SCE-7D6N" 
+              class="px-4 py-2.5 rounded-md text-xs sm:text-sm font-medium text-stone-300 hover:text-white bg-earth-deep border border-earth-muted transition-colors"
+            >
+              Inquire Route
             </a>
           </div>
         </div>
 
-        <!-- Right Column -->
-        <div class="lg:col-span-6">
-          <div class="relative rounded-md overflow-hidden border border-forest-muted aspect-[16/10] sm:aspect-[4/3] bg-stone-900">
+        <!-- Right Large Photography Spread (60% Desktop Width) -->
+        <div class="lg:col-span-7">
+          <div class="relative rounded-md overflow-hidden border border-earth-muted aspect-[16/10] bg-stone-900">
             <img 
-              src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80" 
+              src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1400&q=80" 
               alt="Pristine white sand beach of Koh Rong island" 
               class="w-full h-full object-cover"
             />
@@ -638,16 +626,16 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 9. HISTORICAL TESTIMONIALS (Quiet Editorial Cards, Surface Base #FAF8F5)  -->
+  <!-- 9. HISTORICAL TESTIMONIALS (Warm Sandstone Canvas #F7F3EC)                -->
   <!-- ========================================================================= -->
-  <section id="reviews" class="py-20 lg:py-24 bg-surface-base border-t border-[rgba(25,28,26,0.08)]" aria-labelledby="reviewsHeading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="reviews" class="py-16 sm:py-20 lg:py-24 bg-surface-warm border-t border-[rgba(60,55,45,0.10)]" aria-labelledby="reviewsHeading">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       
       <div class="max-w-2xl mb-10">
         <span class="text-[11px] uppercase tracking-wider font-semibold text-terracotta mb-1.5 block">
           Client Archives
         </span>
-        <h2 id="reviewsHeading" class="font-serif text-[30px] sm:text-[36px] font-bold text-text-primary tracking-tight">
+        <h2 id="reviewsHeading" class="font-serif text-[28px] sm:text-[36px] font-bold text-text-primary tracking-tight">
           Client Feedback (2010–2013)
         </h2>
         <p class="mt-1 text-xs sm:text-sm text-text-muted">
@@ -659,9 +647,9 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- Review 1 -->
-        <article class="bg-surface-raised p-5 rounded-md border border-[rgba(25,28,26,0.08)] flex flex-col justify-between">
+        <article class="bg-surface-base p-5 rounded-md border border-[rgba(60,55,45,0.10)] flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs text-text-subtle mb-3 pb-2 border-b border-[rgba(25,28,26,0.04)]">
+            <div class="flex items-center justify-between text-xs text-text-subtle mb-3 pb-2 border-b border-[rgba(60,55,45,0.06)]">
               <span class="font-semibold text-terracotta">Sylvie & Pierre Durand</span>
               <span>France &bull; Nov 2012</span>
             </div>
@@ -675,9 +663,9 @@
         </article>
 
         <!-- Review 2 -->
-        <article class="bg-surface-raised p-5 rounded-md border border-[rgba(25,28,26,0.08)] flex flex-col justify-between">
+        <article class="bg-surface-base p-5 rounded-md border border-[rgba(60,55,45,0.10)] flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs text-text-subtle mb-3 pb-2 border-b border-[rgba(25,28,26,0.04)]">
+            <div class="flex items-center justify-between text-xs text-text-subtle mb-3 pb-2 border-b border-[rgba(60,55,45,0.06)]">
               <span class="font-semibold text-terracotta">Mark & Sarah Whittaker</span>
               <span>Australia &bull; Feb 2013</span>
             </div>
@@ -691,9 +679,9 @@
         </article>
 
         <!-- Review 3 -->
-        <article class="bg-surface-raised p-5 rounded-md border border-[rgba(25,28,26,0.08)] flex flex-col justify-between">
+        <article class="bg-surface-base p-5 rounded-md border border-[rgba(60,55,45,0.10)] flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs text-text-subtle mb-3 pb-2 border-b border-[rgba(25,28,26,0.04)]">
+            <div class="flex items-center justify-between text-xs text-text-subtle mb-3 pb-2 border-b border-[rgba(60,55,45,0.06)]">
               <span class="font-semibold text-terracotta">Dr. Hans-Jürgen Krause</span>
               <span>Germany &bull; Dec 2011</span>
             </div>
@@ -712,11 +700,11 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 10. CONVERSION CTA (Deep Forest Banner #1B3B2B)                           -->
+  <!-- 10. CONVERSION CTA (Deep Earth Section #1A2D25, Native Link)              -->
   <!-- ========================================================================= -->
-  <section id="contact" class="py-16 sm:py-20 bg-forest-deep text-white relative overflow-hidden border-t border-forest-dark" aria-labelledby="ctaHeading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-forest-dark rounded-md p-8 sm:p-10 border border-forest-muted flex flex-col lg:flex-row items-center justify-between gap-6">
+  <section id="contact" class="py-16 sm:py-20 bg-earth-deep text-white relative overflow-hidden border-t border-earth-dark" aria-labelledby="ctaHeading">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="bg-earth-dark rounded-md p-8 sm:p-10 border border-earth-muted flex flex-col lg:flex-row items-center justify-between gap-6">
         
         <div class="max-w-xl text-center lg:text-left">
           <span class="text-[10px] uppercase font-bold tracking-wider text-gold mb-1 block">
@@ -731,19 +719,18 @@
         </div>
 
         <div class="flex flex-col sm:flex-row items-center gap-3 flex-shrink-0 w-full sm:w-auto">
-          <button 
-            type="button" 
-            onclick="window.openInquiryModal()" 
-            class="w-full sm:w-auto px-5 py-2.5 rounded-md text-xs sm:text-sm font-semibold bg-terracotta hover:bg-terracotta-hover text-white transition-luxury text-center inline-flex items-center justify-center"
+          <a 
+            href="plan-trip.html" 
+            class="w-full sm:w-auto px-6 py-3.5 rounded-md text-xs sm:text-sm font-semibold bg-terracotta hover:bg-terracotta-hover text-white transition-luxury text-center inline-flex items-center justify-center space-x-1.5"
           >
             <span>Start Trip Inquiry</span>
-            <i data-lucide="arrow-right" class="w-4 h-4 ml-1.5"></i>
-          </button>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
           <a 
             href="tel:+85523222727" 
-            class="w-full sm:w-auto px-4 py-2.5 rounded-md text-xs sm:text-sm font-medium bg-forest-deep hover:bg-forest-muted text-stone-200 border border-forest-muted transition-colors text-center inline-flex items-center justify-center"
+            class="w-full sm:w-auto px-5 py-3.5 rounded-md text-xs sm:text-sm font-medium bg-earth-deep hover:bg-earth-muted text-stone-200 border border-earth-muted transition-colors text-center inline-flex items-center justify-center space-x-1.5"
           >
-            <i data-lucide="phone" class="w-3.5 h-3.5 mr-1.5"></i>
+            <i data-lucide="phone" class="w-3.5 h-3.5"></i>
             <span>Call +855 23 222 727</span>
           </a>
         </div>
@@ -753,17 +740,17 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 11. FOOTER (Dark Forest Surface #142E21)                                  -->
+  <!-- 11. FOOTER (Deep Earth Tone #1A2D25)                                      -->
   <!-- ========================================================================= -->
-  <footer class="bg-forest-dark text-stone-400 text-xs pt-16 pb-12 border-t border-[#0D1E16]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <footer class="bg-earth-deep text-stone-400 text-xs pt-16 pb-12 border-t border-[rgba(60,55,45,0.20)]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-forest-muted">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-earth-muted">
         
         <!-- Col 1 & 2: Brand & Corporate Verification -->
         <div class="lg:col-span-2 space-y-3">
           <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 rounded-md bg-forest-deep text-gold flex items-center justify-center font-serif text-lg font-bold">
+            <div class="w-8 h-8 rounded-md bg-earth-dark text-gold flex items-center justify-center font-serif text-lg font-bold">
               2W
             </div>
             <span class="font-serif text-xl font-bold text-white">2World Travel (Cambodia) Ltd</span>
@@ -813,10 +800,10 @@
           <ul class="space-y-1.5 text-xs">
             <li><a href="#tours" class="hover:text-white transition-colors">Siem Reap & Angkor</a></li>
             <li><a href="#tours" class="hover:text-white transition-colors">Phnom Penh Historical</a></li>
-            <li><a href="#tours" class="hover:text-white transition-colors">South Coast (7D6N)</a></li>
+            <li><a href="tour-detail.html?code=2WT-SCE-7D6N" class="hover:text-white transition-colors">South Coast (7D6N)</a></li>
             <li><a href="#tours" class="hover:text-white transition-colors">Northeast Eco-Trails</a></li>
-            <li><a href="#services" class="hover:text-white transition-colors">Bus & Transit Tickets</a></li>
-            <li><a href="#services" class="hover:text-white transition-colors">Multilingual Guides</a></li>
+            <li><a href="plan-trip.html?service=transport" class="hover:text-white transition-colors">Bus & Transit Tickets</a></li>
+            <li><a href="plan-trip.html?service=guides" class="hover:text-white transition-colors">Multilingual Guides</a></li>
           </ul>
         </div>
 

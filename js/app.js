@@ -1,10 +1,12 @@
 /**
  * 2World Travel Cambodia — Application Controller
- * Manages DOM rendering, Lucide icons, accessible modal dialogs, and instant filter updates.
+ * Manages adaptive header, DOM rendering, Lucide icons, accessible modals, and instant filter updates.
  */
 
 import { TOURS_DATA, DESTINATIONS_DATA, COMPANY_INFO } from './data.js';
 import { renderTourCard, renderDestinationCard, renderInquiryModal } from './components.js';
+
+let isMobileMenuOpen = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
@@ -13,36 +15,41 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroSearch();
   initScrollEffects();
   
-  // Initialize Lucide icons on page load
   if (window.lucide) {
     window.lucide.createIcons();
   }
 });
 
 /**
- * Mobile Drawer & Navigation Behavior
+ * Mobile Navigation Drawer & Adaptive Header Behavior
  */
 function initNavigation() {
   const menuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  const header = document.getElementById('mainHeader');
 
-  if (menuBtn && mobileMenu) {
+  if (menuBtn && mobileMenu && header) {
     menuBtn.addEventListener('click', () => {
-      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-      menuBtn.setAttribute('aria-expanded', !isExpanded);
-      mobileMenu.classList.toggle('hidden');
+      isMobileMenuOpen = !isMobileMenuOpen;
+      menuBtn.setAttribute('aria-expanded', String(isMobileMenuOpen));
+      mobileMenu.classList.toggle('hidden', !isMobileMenuOpen);
       
-      // Update menu icon
+      // When mobile nav opens, switch header surface to solid sandstone
+      header.classList.toggle('header-mobile-open', isMobileMenuOpen);
+      
+      // Toggle menu / x icon
       const menuIcon = menuBtn.querySelector('i');
       if (menuIcon) {
-        menuIcon.setAttribute('data-lucide', isExpanded ? 'menu' : 'x');
+        menuIcon.setAttribute('data-lucide', isMobileMenuOpen ? 'x' : 'menu');
         if (window.lucide) window.lucide.createIcons();
       }
     });
 
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
+        isMobileMenuOpen = false;
         mobileMenu.classList.add('hidden');
+        header.classList.remove('header-mobile-open');
         menuBtn.setAttribute('aria-expanded', 'false');
         const menuIcon = menuBtn.querySelector('i');
         if (menuIcon) {
@@ -201,13 +208,13 @@ function filterToursOnPage(dest, style, duration) {
     toursContainer.innerHTML = filtered.map(tour => renderTourCard(tour)).join('');
   } else {
     toursContainer.innerHTML = `
-      <div class="col-span-full p-10 text-center bg-white rounded-md border border-stone-200">
-        <p class="text-sm font-semibold text-slateText-900 mb-1">No matching itineraries found</p>
-        <p class="text-xs text-slateText-500 mb-4 max-w-sm mx-auto">We customize all routes. Inquire directly for a tailor-made schedule.</p>
+      <div class="col-span-full p-10 text-center bg-white rounded-md border border-[rgba(25,28,26,0.08)]">
+        <p class="text-sm font-semibold text-[#191C1A] mb-1">No matching itineraries found</p>
+        <p class="text-xs text-[#5C645F] mb-4 max-w-sm mx-auto">We customize all routes. Inquire directly for a tailor-made schedule.</p>
         <button 
           type="button" 
           onclick="window.resetToursFilter()" 
-          class="px-3.5 py-1.5 rounded-md text-xs font-semibold bg-terracotta-500 text-white hover:bg-terracotta-600 transition-luxury"
+          class="px-3.5 py-1.5 rounded-md text-xs font-semibold bg-[#C25E38] text-white hover:bg-[#A84F2E] transition-luxury"
         >
           Reset Filters
         </button>
@@ -246,19 +253,17 @@ window.resetToursFilter = function() {
 };
 
 /**
- * Header Scroll
+ * Adaptive Header Scroll Behavior (Scrim-to-Solid after 60px)
  */
 function initScrollEffects() {
   const header = document.getElementById('mainHeader');
   if (!header) return;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      header.classList.add('border-stone-300');
-      header.classList.remove('border-sandstone-200');
-    } else {
-      header.classList.remove('border-stone-300');
-      header.classList.add('border-sandstone-200');
-    }
-  });
+  const handleScroll = () => {
+    const scrolled = window.scrollY > 60;
+    header.classList.toggle('header-scrolled', scrolled);
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // Initial check on load
 }

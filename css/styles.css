@@ -1,37 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Cambodian Inspired Color Tokens - Flat & Editorial */
-  --color-sandstone-bg: #FBF8F3;
-  --color-sandstone-surface: #FFFFFF;
-  --color-sandstone-border: #E6DFD3;
-  --color-sandstone-muted: #F4EFE6;
+  /* Adapted Gemini Palette - Flat, Warm, Editorial */
+  --color-surface-base: #FAF8F5;
+  --color-surface-raised: #FFFFFF;
+  --color-surface-warm: #F4EFE7;
   
-  --color-terracotta-primary: #9E472A;
-  --color-terracotta-hover: #82381F;
-  --color-terracotta-light: #F7EDE8;
+  --color-forest-deep: #1B3B2B;
+  --color-forest-dark: #142E21;
+  --color-forest-muted: #244C38;
   
-  --color-forest-dark: #142E27;
-  --color-forest-medium: #1C3F35;
-  --color-forest-deep: #0D1E1A;
+  --color-text-primary: #191C1A;
+  --color-text-muted: #5C645F;
+  --color-text-subtle: #8A928D;
   
-  --color-gold-accent: #C38B38;
-  --color-gold-light: #F8F1E3;
+  --color-terracotta: #C25E38;
+  --color-terracotta-hover: #A84F2E;
   
-  --color-slate-text: #1B2228;
-  --color-slate-muted: #5D6773;
-  --color-slate-subtle: #8A96A4;
+  --color-gold: #D4A359;
+  --color-gold-muted: #EAD8B8;
+  
+  --color-border: rgba(25, 28, 26, 0.08);
+  --color-border-subtle: rgba(25, 28, 26, 0.05);
 
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
-/* Base resets & typography */
+/* Base Resets & Layout */
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-sandstone-bg);
-  color: var(--color-slate-text);
+  background-color: var(--color-surface-base);
+  color: var(--color-text-primary);
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -43,7 +44,7 @@ h1, h2, h3, .font-display {
   letter-spacing: -0.015em;
 }
 
-/* Lucide Icon Standard Styling */
+/* Lucide Icon Standard Alignment */
 svg.lucide, [data-lucide] {
   display: inline-block;
   vertical-align: -0.125em;
@@ -57,16 +58,16 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--color-terracotta-primary);
+  outline: 2px solid var(--color-terracotta);
   outline-offset: 2px;
 }
 
-/* Flat luxury transitions */
+/* Flat transitions */
 .transition-luxury {
-  transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
-/* Flat restrained image zoom */
+/* Restrained image zoom */
 .card-image-zoom {
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -75,9 +76,113 @@ textarea:focus-visible {
   transform: scale(1.02);
 }
 
-/* Flat Modal Backdrop - solid tinted dimming */
+/* Modal Backdrop */
 .modal-backdrop {
-  background-color: rgba(13, 30, 26, 0.75);
+  background-color: rgba(25, 28, 26, 0.7);
+}
+
+/* ========================================================================= */
+/* ADAPTIVE HEADER SYSTEM (Scrim-to-Solid)                                   */
+/* ========================================================================= */
+#mainHeader {
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  color: #FFFFFF;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease, backdrop-filter 250ms ease;
+}
+
+/* Scrolled state (triggered after ~50-80px scroll) */
+#mainHeader.header-scrolled,
+#mainHeader.header-mobile-open {
+  background-color: rgba(250, 248, 245, 0.96);
+  border-bottom-color: rgba(25, 28, 26, 0.08);
+  color: var(--color-text-primary);
+  backdrop-filter: blur(8px);
+}
+
+/* Brand styling per state */
+#mainHeader:not(.header-scrolled):not(.header-mobile-open) .brand-title {
+  color: #FFFFFF;
+}
+#mainHeader:not(.header-scrolled):not(.header-mobile-open) .brand-sub {
+  color: rgba(255, 255, 255, 0.65);
+}
+#mainHeader:not(.header-scrolled):not(.header-mobile-open) .brand-mark {
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--color-gold);
+}
+
+#mainHeader.header-scrolled .brand-title,
+#mainHeader.header-mobile-open .brand-title {
+  color: var(--color-text-primary);
+}
+#mainHeader.header-scrolled .brand-sub,
+#mainHeader.header-mobile-open .brand-sub {
+  color: var(--color-text-muted);
+}
+#mainHeader.header-scrolled .brand-mark,
+#mainHeader.header-mobile-open .brand-mark {
+  background-color: var(--color-forest-deep);
+  border: 1px solid transparent;
+  color: var(--color-gold);
+}
+
+/* Nav links per state */
+#mainHeader:not(.header-scrolled):not(.header-mobile-open) .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+}
+#mainHeader:not(.header-scrolled):not(.header-mobile-open) .nav-link:hover {
+  color: #FFFFFF;
+}
+#mainHeader:not(.header-scrolled):not(.header-mobile-open) .nav-link.active {
+  color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
+}
+
+#mainHeader.header-scrolled .nav-link {
+  color: var(--color-text-muted);
+}
+#mainHeader.header-scrolled .nav-link:hover {
+  color: var(--color-text-primary);
+}
+#mainHeader.header-scrolled .nav-link.active {
+  color: var(--color-terracotta);
+  border-bottom-color: var(--color-terracotta);
+}
+
+/* Header CTA per state */
+#headerCta {
+  transition: all 250ms ease;
+}
+#mainHeader:not(.header-scrolled):not(.header-mobile-open) #headerCta {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+  color: #FFFFFF;
+}
+#mainHeader:not(.header-scrolled):not(.header-mobile-open) #headerCta:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+#mainHeader.header-scrolled #headerCta,
+#mainHeader.header-mobile-open #headerCta {
+  border: 1px solid transparent;
+  background-color: var(--color-forest-deep);
+  color: #FFFFFF;
+}
+#mainHeader.header-scrolled #headerCta:hover,
+#mainHeader.header-mobile-open #headerCta:hover {
+  background-color: var(--color-forest-dark);
+}
+
+/* Mobile Menu Button per state */
+#mainHeader:not(.header-scrolled):not(.header-mobile-open) #mobileMenuBtn {
+  color: #FFFFFF;
+}
+#mainHeader.header-scrolled #mobileMenuBtn,
+#mainHeader.header-mobile-open #mobileMenuBtn {
+  color: var(--color-text-primary);
 }
 
 /* Reduced motion preference */
@@ -92,36 +197,17 @@ textarea:focus-visible {
   }
 }
 
-/* Badges - crisp flat labels */
-.badge-gold {
-  background-color: var(--color-gold-light);
-  color: #7D5618;
-  border: 1px solid rgba(195, 139, 56, 0.35);
-}
-
-.badge-terracotta {
-  background-color: var(--color-terracotta-light);
-  color: var(--color-terracotta-primary);
-  border: 1px solid rgba(158, 71, 42, 0.25);
-}
-
-.badge-forest {
-  background-color: rgba(28, 63, 53, 0.08);
-  color: var(--color-forest-medium);
-  border: 1px solid rgba(28, 63, 53, 0.25);
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F4EFE6;
+  background: var(--color-surface-base);
 }
 ::-webkit-scrollbar-thumb {
   background: #D8CEBD;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9E472A;
+  background: var(--color-terracotta);
 }

@@ -43,6 +43,14 @@ h1, h2, h3, .font-display {
   letter-spacing: -0.015em;
 }
 
+/* Lucide Icon Standard Styling */
+svg.lucide, [data-lucide] {
+  display: inline-block;
+  vertical-align: -0.125em;
+  stroke-width: 1.75;
+  stroke: currentColor;
+}
+
 /* Accessible focus rings */
 a:focus-visible,
 button:focus-visible,
@@ -53,21 +61,21 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
-/* Flat luxury transitions (color, border, subtle scale - no hover elevation/translateY) */
+/* Flat luxury transitions */
 .transition-luxury {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
 }
 
-/* Restrained, flat Image Zoom */
+/* Flat restrained image zoom */
 .card-image-zoom {
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .group:hover .card-image-zoom {
-  transform: scale(1.025);
+  transform: scale(1.02);
 }
 
-/* Flat Modal Backdrop - solid tinted dimming, zero blur */
+/* Flat Modal Backdrop - solid tinted dimming */
 .modal-backdrop {
   background-color: rgba(13, 30, 26, 0.75);
 }
@@ -105,7 +113,7 @@ textarea:focus-visible {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #F4EFE6;

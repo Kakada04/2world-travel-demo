@@ -1,7 +1,6 @@
 /**
  * 2World Travel Cambodia — Application Controller
- * Flat, clean, modern travel interface controller.
- * Manages DOM rendering, accessible modal dialogs, and instant filter updates.
+ * Manages DOM rendering, Lucide icons, accessible modal dialogs, and instant filter updates.
  */
 
 import { TOURS_DATA, DESTINATIONS_DATA, COMPANY_INFO } from './data.js';
@@ -13,6 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHomeContent();
   initHeroSearch();
   initScrollEffects();
+  
+  // Initialize Lucide icons on page load
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 });
 
 /**
@@ -27,12 +31,24 @@ function initNavigation() {
       const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
       menuBtn.setAttribute('aria-expanded', !isExpanded);
       mobileMenu.classList.toggle('hidden');
+      
+      // Update menu icon
+      const menuIcon = menuBtn.querySelector('i');
+      if (menuIcon) {
+        menuIcon.setAttribute('data-lucide', isExpanded ? 'menu' : 'x');
+        if (window.lucide) window.lucide.createIcons();
+      }
     });
 
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
         menuBtn.setAttribute('aria-expanded', 'false');
+        const menuIcon = menuBtn.querySelector('i');
+        if (menuIcon) {
+          menuIcon.setAttribute('data-lucide', 'menu');
+          if (window.lucide) window.lucide.createIcons();
+        }
       });
     });
   }
@@ -58,6 +74,10 @@ function renderHomeContent() {
     modalWrapper.innerHTML = renderInquiryModal();
     document.body.appendChild(modalWrapper.firstElementChild);
   }
+
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 }
 
 /**
@@ -82,6 +102,10 @@ function initModal() {
     modal.classList.add('flex');
     document.body.style.overflow = 'hidden';
 
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+
     setTimeout(() => {
       const firstInput = document.getElementById('clientName');
       if (firstInput) firstInput.focus();
@@ -104,6 +128,9 @@ function initModal() {
     if (form && success) {
       form.classList.add('hidden');
       success.classList.remove('hidden');
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
     }
   };
 
@@ -175,19 +202,38 @@ function filterToursOnPage(dest, style, duration) {
   } else {
     toursContainer.innerHTML = `
       <div class="col-span-full p-10 text-center bg-white rounded-md border border-stone-200">
-        <p class="text-sm font-semibold text-slate-800 mb-1.5">No matching itineraries found</p>
-        <p class="text-xs text-slate-500 mb-4 max-w-md mx-auto">We customize all routes. Contact our travel team directly to build a custom journey suited to your exact dates and duration.</p>
+        <p class="text-sm font-semibold text-slateText-900 mb-1">No matching itineraries found</p>
+        <p class="text-xs text-slateText-500 mb-4 max-w-sm mx-auto">We customize all routes. Inquire directly for a tailor-made schedule.</p>
         <button 
           type="button" 
           onclick="window.resetToursFilter()" 
-          class="px-3.5 py-1.5 rounded-md text-xs font-semibold bg-[#9E472A] text-white hover:bg-[#82381F] transition-luxury"
+          class="px-3.5 py-1.5 rounded-md text-xs font-semibold bg-terracotta-500 text-white hover:bg-terracotta-600 transition-luxury"
         >
           Reset Filters
         </button>
       </div>
     `;
   }
+
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 }
+
+window.filterByDestination = function(destName) {
+  const destSelect = document.getElementById('heroDestSelect');
+  if (destSelect) {
+    for (let i = 0; i < destSelect.options.length; i++) {
+      if (destSelect.options[i].text.toLowerCase().includes(destName.toLowerCase())) {
+        destSelect.selectedIndex = i;
+        break;
+      }
+    }
+  }
+  filterToursOnPage(destName, '', '');
+  const tours = document.getElementById('tours');
+  if (tours) tours.scrollIntoView({ behavior: 'smooth' });
+};
 
 window.resetToursFilter = function() {
   const toursContainer = document.getElementById('featuredToursGrid');
@@ -196,10 +242,11 @@ window.resetToursFilter = function() {
   }
   const form = document.getElementById('heroSearchForm');
   if (form) form.reset();
+  if (window.lucide) window.lucide.createIcons();
 };
 
 /**
- * Header Scroll - Flat subtle border emphasis without shadows
+ * Header Scroll
  */
 function initScrollEffects() {
   const header = document.getElementById('mainHeader');
